@@ -1,0 +1,68 @@
+pushi 0
+pushi 1
+pushi 0
+pushi 0
+start
+pushs "Para terminar insira um 0."
+writes
+pushs "\n"
+writes
+pushi 0
+storeg 0
+for1:
+pushg 1
+pushi 0
+equal
+not
+jz fimfor1
+pushs "Insira um numero:"
+writes
+pushs "\n"
+writes
+read
+atoi
+storeg 2
+pushg 2
+pushi 0
+equal
+jz else2
+pushi 0
+storeg 1
+jump fimif2
+else2:
+pushg 2
+pushi 2
+mod
+pushi 0
+equal
+not
+jz fimif1
+pushs "Numero impar:"
+writes
+pushs "\n"
+writes
+pushg 2
+writei
+pushs "\n"
+writes
+pushg 3
+pushi 1
+add
+storeg 3
+fimif1:
+fimif2:
+pushg 0
+pushi 1
+add
+storeg 0
+jump for1
+fimfor1:
+pushs "Numero de impares:"
+writes
+pushs "\n"
+writes
+pushg 3
+writei
+pushs "\n"
+writes
+stop

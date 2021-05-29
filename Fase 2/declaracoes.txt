@@ -1,0 +1,26 @@
+declaracoes:
+
+var x;
+
+var y=1;
+
+instrucoes:
+
+y = 1+1;
+x = y-x;
+x = x*(y-2);
+
+if(x<y) {
+
+}
+else if(x > y){
+    
+}
+else{
+
+}
+
+while(x < y){
+
+}
+

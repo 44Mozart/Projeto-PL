@@ -1,0 +1,28 @@
+main{
+    declaracoes{
+        var i;
+        var j;
+        var k;
+        var l;
+        var r = 0;
+    }
+    instrucoes{
+        escrever "Insira um numero:";
+        ler i;
+        escrever "Insira um numero:";
+        ler j;
+        escrever "Insira um numero:";
+        ler k;
+        escrever "Insira um numero:";
+        ler l;
+        if(i == j && i == k && i == l){
+            r = 1;
+        }
+        if(r == 0){
+            escrever "Nao e um quadrado.";
+        }
+        else {
+            escrever "E um quadrado!";
+        }
+    }
+}

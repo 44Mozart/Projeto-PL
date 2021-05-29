@@ -1,0 +1,17 @@
+main{
+    declaracoes{
+        var n = 3;
+        var aux;
+        var produto = 1;
+        var i;
+    }
+    instrucoes{
+        for(i = 0; i < n; i = i+1)do{
+            escrever "Insira um numero:";
+            ler aux;
+            produto = produto * aux;
+        }
+        escrever "O produtorio dos N numeros e:";
+        escrever produto;
+    }
+}

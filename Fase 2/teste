@@ -1,0 +1,15 @@
+main {
+    declaracoes{
+        var i;
+        var soma;
+        var j = 2;
+    } instrucoes{
+        for(i = 0; i < j; i = i+1) do{
+            soma = soma+1;
+        }
+        
+        escrever soma;
+        escrever i;
+    }
+}
+    

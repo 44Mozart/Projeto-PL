@@ -1,0 +1,24 @@
+main {
+    declaracoes{
+        var aux;
+        var menor;
+        var n;
+        var i;
+    }
+    instrucoes{
+        escrever "Insira o N:";
+        ler n;
+        escrever "Insira um numero:";
+        ler aux;
+        menor = aux;
+        for(i = 1; i < n; i = i+1) do{
+            escrever "Insira um numero:";
+            ler aux;
+            if(aux < menor){
+                menor = aux;
+            }
+        }
+        escrever "O menor e:";
+        escrever menor;
+    }
+}
