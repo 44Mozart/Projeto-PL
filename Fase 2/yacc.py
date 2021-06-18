@@ -9,7 +9,7 @@ import sys
 # Funcoes : Funcao Funcoes
 #         | vazio
 #
-# Funcao : FUNCAO NOME CA Declaracoes Instrucoes RETURN Exp PV CF
+# Funcao : FUNCAO ID CA Instrucoes RETURN Exp PV CF
 #
 # Declaracoes : DECLARACOES CA Decls CF
 #
@@ -68,7 +68,12 @@ import sys
 
 def p_Programa(p):
     "Programa : Main Funcoes"
-    p.parser.fileOut.write(f'{p[1]}\n{p[2]}') 
+
+    if not p.parser.func_called.issubset(p.parser.func_registers):
+        raise Exception
+
+    p.parser.fileOut.write(f'{p[1]}\n{p[2]}')
+    
 
 # --------------------------------------------------------------------------------
 # |                                 Main                                         |
@@ -95,8 +100,9 @@ def p_Funcoes_vazio(p):
 # --------------------------------------------------------------------------------
 
 def p_Funcao(p):
-    "Funcao : FUNCAO NOME CA Declaracoes Instrucoes RETURN Exp PV CF"
-    p[0] = f"{set_functions(p,p[2])}{p[4]}{p[5]}return {p[7]}"
+    "Funcao : FUNCAO ID CA Insts CF"
+    set_func(p, p[2])
+    p[0] = f"{p[2]}:\n{p[4]}return\n"
 
 # --------------------------------------------------------------------------------
 # |                                 Declaracoes                                  |
@@ -172,17 +178,12 @@ def p_Inst_ESCREVER(p):
     "Inst : ESCREVER Frase PV"
     p[0] = p[2]
 
-#
-#
-#
-#
 def p_Inst_CALL(p):
-    "Inst : CALL Funcao PV"
-    p[0] = f"call {get_functions(p,p[2])}"
+    "Inst : CALL ID PV"
 
-def p_Inst_RETURN(p):
-    "Inst : RETURN Exp PV"
-    p[0] = f"return {p[2]}"
+    set_func_called(p, p[2])
+
+    p[0] = f"pusha {p[2]}\ncall\n"
 
 def p_Inst_FOR(p):
     "Inst : FOR PA Inst Logica PV IFor PF DO CA Insts CF"
@@ -324,31 +325,35 @@ def p_error(p):
 
 def set_registers(p, id):
     if id not in p.parser.registers:
-        parser.registers[id] = p.parser.offset
+        p.parser.registers[id] = p.parser.offset
         p.parser.offset += 1
+    else:
+        raise Exception
 
 def get_registers(p, id):
     if id in p.parser.registers:
         return p.parser.registers[id]
     else:
-        return None
+        raise Exception
 
-def set_functions(p, id):
-    if id not in p.parser.functions:
-        parser.functions[id] = p.parser.offset_functions
-        p.parser.offset_functions += 1
-
-def get_functions(p, id):
-    if id in p.parser.functions:
-        return p.parser.functions[id]
+def set_func(p, func):
+    if func not in p.parser.func_registers:
+        p.parser.func_registers.add(func)
     else:
-        return None
+        raise Exception
+
+def set_func_called(p, func):
+    if func not in p.parser.func_called:
+        p.parser.func_called.add(func)
+    else:
+        raise Exception
 
 parser = yacc.yacc()
 
 parser.registers = dict() # (id : offset)
+parser.func_registers = set()
 parser.offset = 0
-parser.functions = dict()
+parser.func_called = set()
 parser.offset_functions = 0
 parser.if_counter = 0
 parser.for_counter = 0
@@ -362,5 +367,10 @@ file = open(input("Introduce path to file to be compiled: "),'r')
 for linha in file:
     textoFonte += linha
 
-parser.parse(textoFonte)
+try:
+    parser.parse(textoFonte)
+except Exception:
+        print("Syntax Error")
 
+file.close()
+parser.fileOut.close()

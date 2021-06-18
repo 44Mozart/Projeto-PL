@@ -1,0 +1,24 @@
+main{
+    declaracoes{
+        var i;
+        var b;
+        var e;
+        var r;
+    }
+    instrucoes{
+        call potencia;
+        escrever "Resultado:";
+        escrever r;
+    }
+}
+funcao potencia{
+    escrever "Introduza o expoente:";
+    ler e;
+    escrever "Introduza a base:";
+    ler b;
+
+    r = b;
+    for(i=1; i < e; i= i+1)do{
+        r = r * b;
+    }
+}

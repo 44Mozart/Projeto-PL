@@ -1,14 +1,14 @@
-/* A Bison parser, made by GNU Bison 2.3.  */
+/* A Bison parser, made by GNU Bison 3.5.1.  */
 
-/* Skeleton interface for Bison's Yacc-like parsers in C
+/* Bison interface for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989, 1990, 2000, 2001, 2002, 2003, 2004, 2005, 2006
-   Free Software Foundation, Inc.
+   Copyright (C) 1984, 1989-1990, 2000-2015, 2018-2020 Free Software Foundation,
+   Inc.
 
-   This program is free software; you can redistribute it and/or modify
+   This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 2, or (at your option)
-   any later version.
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
 
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -16,9 +16,7 @@
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with this program; if not, write to the Free Software
-   Foundation, Inc., 51 Franklin Street, Fifth Floor,
-   Boston, MA 02110-1301, USA.  */
+   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
 /* As a special exception, you may create a larger work that contains
    part or all of the Bison parser skeleton and distribute that work
@@ -33,87 +31,99 @@
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
 
-/* Tokens.  */
+/* Undocumented macros, especially those whose name start with YY_,
+   are private implementation details.  Do not rely on them.  */
+
+#ifndef YY_YY_Y_TAB_H_INCLUDED
+# define YY_YY_Y_TAB_H_INCLUDED
+/* Debug traces.  */
+#ifndef YYDEBUG
+# define YYDEBUG 0
+#endif
+#if YYDEBUG
+extern int yydebug;
+#endif
+
+/* Token type.  */
 #ifndef YYTOKENTYPE
 # define YYTOKENTYPE
-   /* Put the tokens into the symbol table, so that GDB and other debuggers
-      know about them.  */
-   enum yytokentype {
-     _ADD = 258,
-     _SUB = 259,
-     _MUL = 260,
-     _DIV = 261,
-     _MOD = 262,
-     _NOT = 263,
-     _INF = 264,
-     _INFEQ = 265,
-     _SUP = 266,
-     _SUPEQ = 267,
-     _FADD = 268,
-     _FSUB = 269,
-     _FSIN = 270,
-     _FCOS = 271,
-     _FTAN = 272,
-     _FMUL = 273,
-     _FDIV = 274,
-     _FINF = 275,
-     _FINFEQ = 276,
-     _FSUP = 277,
-     _FSUPEQ = 278,
-     _PADD = 279,
-     _CONCAT = 280,
-     _ALLOC = 281,
-     _ALLOCN = 282,
-     _FREE = 283,
-     _EQUAL = 284,
-     _ATOI = 285,
-     _ATOF = 286,
-     _ITOF = 287,
-     _FTOI = 288,
-     _STRI = 289,
-     _STRF = 290,
-     _PUSHI = 291,
-     _PUSHN = 292,
-     _PUSHF = 293,
-     _PUSHS = 294,
-     _PUSHG = 295,
-     _PUSHL = 296,
-     _PUSHSP = 297,
-     _PUSHFP = 298,
-     _PUSHGP = 299,
-     _LOAD = 300,
-     _LOADN = 301,
-     _DUP = 302,
-     _DUPN = 303,
-     _POP = 304,
-     _POPN = 305,
-     _STOREL = 306,
-     _STOREG = 307,
-     _STORE = 308,
-     _STOREN = 309,
-     _CHECK = 310,
-     _SWAP = 311,
-     _WRITEI = 312,
-     _WRITEF = 313,
-     _WRITES = 314,
-     _READ = 315,
-     _READI = 316,
-     _READF = 317,
-     _READS = 318,
-     _JUMP = 319,
-     _JZ = 320,
-     _PUSHA = 321,
-     _CALL = 322,
-     _ARETURN = 323,
-     _START = 324,
-     _NOP = 325,
-     _ERR = 326,
-     _STOP = 327,
-     _INT = 328,
-     _FLOAT = 329,
-     _STRING = 330,
-     _LABEL = 331
-   };
+  enum yytokentype
+  {
+    _ADD = 258,
+    _SUB = 259,
+    _MUL = 260,
+    _DIV = 261,
+    _MOD = 262,
+    _NOT = 263,
+    _INF = 264,
+    _INFEQ = 265,
+    _SUP = 266,
+    _SUPEQ = 267,
+    _FADD = 268,
+    _FSUB = 269,
+    _FSIN = 270,
+    _FCOS = 271,
+    _FTAN = 272,
+    _FMUL = 273,
+    _FDIV = 274,
+    _FINF = 275,
+    _FINFEQ = 276,
+    _FSUP = 277,
+    _FSUPEQ = 278,
+    _PADD = 279,
+    _CONCAT = 280,
+    _ALLOC = 281,
+    _ALLOCN = 282,
+    _FREE = 283,
+    _EQUAL = 284,
+    _ATOI = 285,
+    _ATOF = 286,
+    _ITOF = 287,
+    _FTOI = 288,
+    _STRI = 289,
+    _STRF = 290,
+    _PUSHI = 291,
+    _PUSHN = 292,
+    _PUSHF = 293,
+    _PUSHS = 294,
+    _PUSHG = 295,
+    _PUSHL = 296,
+    _PUSHSP = 297,
+    _PUSHFP = 298,
+    _PUSHGP = 299,
+    _LOAD = 300,
+    _LOADN = 301,
+    _DUP = 302,
+    _DUPN = 303,
+    _POP = 304,
+    _POPN = 305,
+    _STOREL = 306,
+    _STOREG = 307,
+    _STORE = 308,
+    _STOREN = 309,
+    _CHECK = 310,
+    _SWAP = 311,
+    _WRITEI = 312,
+    _WRITEF = 313,
+    _WRITES = 314,
+    _READ = 315,
+    _READI = 316,
+    _READF = 317,
+    _READS = 318,
+    _JUMP = 319,
+    _JZ = 320,
+    _PUSHA = 321,
+    _CALL = 322,
+    _ARETURN = 323,
+    _START = 324,
+    _NOP = 325,
+    _ERR = 326,
+    _STOP = 327,
+    _INT = 328,
+    _FLOAT = 329,
+    _STRING = 330,
+    _LABEL = 331
+  };
 #endif
 /* Tokens.  */
 #define _ADD 258
@@ -191,24 +201,27 @@
 #define _STRING 330
 #define _LABEL 331
 
-
-
-
+/* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef union YYSTYPE
-#line 19 "syntax.y"
+union YYSTYPE
 {
+#line 19 "syntax.y"
+
     int i;
     float f;
     GString* s;
-}
-/* Line 1529 of yacc.c.  */
-#line 207 "y.tab.h"
-	YYSTYPE;
-# define yystype YYSTYPE /* obsolescent; will be withdrawn */
-# define YYSTYPE_IS_DECLARED 1
+
+#line 215 "y.tab.h"
+
+};
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
+# define YYSTYPE_IS_DECLARED 1
 #endif
+
 
 extern YYSTYPE yylval;
 
+int yyparse (void);
+
+#endif /* !YY_YY_Y_TAB_H_INCLUDED  */

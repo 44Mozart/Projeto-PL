@@ -7,7 +7,7 @@ Rule 1     Programa -> Main Funcoes
 Rule 2     Main -> MAIN CA Declaracoes Instrucoes CF
 Rule 3     Funcoes -> Funcao Funcoes
 Rule 4     Funcoes -> <empty>
-Rule 5     Funcao -> FUNCAO NOME CA Declaracoes Instrucoes RETURN Exp PV CF
+Rule 5     Funcao -> FUNCAO ID CA Insts CF
 Rule 6     Declaracoes -> DECLARACOES CA Decls CF
 Rule 7     Decls -> Decl Decls
 Rule 8     Decls -> <empty>
@@ -20,97 +20,94 @@ Rule 14    Inst -> ID IGUAL Exp PV
 Rule 15    IFor -> ID IGUAL Exp
 Rule 16    Inst -> LER ID PV
 Rule 17    Inst -> ESCREVER Frase PV
-Rule 18    Inst -> CALL Funcao PV
-Rule 19    Inst -> RETURN Exp PV
-Rule 20    Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF
-Rule 21    Inst -> IF PA Logica PF CA Insts CF
-Rule 22    Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF
-Rule 23    Frase -> STRING
-Rule 24    Frase -> Exp
-Rule 25    Logica -> Logica AND Cond
-Rule 26    Logica -> Logica OR Cond
-Rule 27    Logica -> NOT Cond
-Rule 28    Logica -> Cond
-Rule 29    Cond -> Cond MAIOR Exp
-Rule 30    Cond -> Cond MENOR Exp
-Rule 31    Cond -> Cond MAIORI Exp
-Rule 32    Cond -> Cond MENORI Exp
-Rule 33    Cond -> Cond II Exp
-Rule 34    Cond -> Cond DIF Exp
-Rule 35    Cond -> Exp
-Rule 36    Exp -> Exp SOMA Termo
-Rule 37    Exp -> Exp SUB Termo
-Rule 38    Exp -> Termo
-Rule 39    Termo -> Termo MUL Fator
-Rule 40    Termo -> Termo DIV Fator
-Rule 41    Termo -> Termo MOD Fator
-Rule 42    Termo -> Fator
-Rule 43    Fator -> ( Logica )
-Rule 44    Fator -> NUM
-Rule 45    Fator -> ID
+Rule 18    Inst -> CALL ID PV
+Rule 19    Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF
+Rule 20    Inst -> IF PA Logica PF CA Insts CF
+Rule 21    Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF
+Rule 22    Frase -> STRING
+Rule 23    Frase -> Exp
+Rule 24    Logica -> Logica AND Cond
+Rule 25    Logica -> Logica OR Cond
+Rule 26    Logica -> NOT Cond
+Rule 27    Logica -> Cond
+Rule 28    Cond -> Cond MAIOR Exp
+Rule 29    Cond -> Cond MENOR Exp
+Rule 30    Cond -> Cond MAIORI Exp
+Rule 31    Cond -> Cond MENORI Exp
+Rule 32    Cond -> Cond II Exp
+Rule 33    Cond -> Cond DIF Exp
+Rule 34    Cond -> Exp
+Rule 35    Exp -> Exp SOMA Termo
+Rule 36    Exp -> Exp SUB Termo
+Rule 37    Exp -> Termo
+Rule 38    Termo -> Termo MUL Fator
+Rule 39    Termo -> Termo DIV Fator
+Rule 40    Termo -> Termo MOD Fator
+Rule 41    Termo -> Fator
+Rule 42    Fator -> ( Logica )
+Rule 43    Fator -> NUM
+Rule 44    Fator -> ID
 
 Terminals, with rules where they appear
 
-(                    : 43
-)                    : 43
-AND                  : 25
-CA                   : 2 5 6 11 20 21 22 22
+(                    : 42
+)                    : 42
+AND                  : 24
+CA                   : 2 5 6 11 19 20 21 21
 CALL                 : 18
-CF                   : 2 5 6 11 20 21 22 22
+CF                   : 2 5 6 11 19 20 21 21
 DECLARACOES          : 6
-DIF                  : 34
-DIV                  : 40
-DO                   : 20
-ELSE                 : 22
+DIF                  : 33
+DIV                  : 39
+DO                   : 19
+ELSE                 : 21
 ESCREVER             : 17
-FOR                  : 20
+FOR                  : 19
 FUNCAO               : 5
-ID                   : 9 10 14 15 16 45
-IF                   : 21 22
+ID                   : 5 9 10 14 15 16 18 44
+IF                   : 20 21
 IGUAL                : 10 14 15
-II                   : 33
+II                   : 32
 INSTRUCOES           : 11
 LER                  : 16
 MAIN                 : 2
-MAIOR                : 29
-MAIORI               : 31
-MENOR                : 30
-MENORI               : 32
-MOD                  : 41
-MUL                  : 39
-NOME                 : 5
-NOT                  : 27
-NUM                  : 44
-OR                   : 26
-PA                   : 20 21 22
-PF                   : 20 21 22
-PV                   : 5 9 10 14 16 17 18 19 20
-RETURN               : 5 19
-SOMA                 : 36
-STRING               : 23
-SUB                  : 37
+MAIOR                : 28
+MAIORI               : 30
+MENOR                : 29
+MENORI               : 31
+MOD                  : 40
+MUL                  : 38
+NOT                  : 26
+NUM                  : 43
+OR                   : 25
+PA                   : 19 20 21
+PF                   : 19 20 21
+PV                   : 9 10 14 16 17 18 19
+SOMA                 : 35
+STRING               : 22
+SUB                  : 36
 VAR                  : 9 10
 error                : 
 
 Nonterminals, with rules where they appear
 
-Cond                 : 25 26 27 28 29 30 31 32 33 34
+Cond                 : 24 25 26 27 28 29 30 31 32 33
 Decl                 : 7
-Declaracoes          : 2 5
+Declaracoes          : 2
 Decls                : 6 7
-Exp                  : 5 10 14 15 19 24 29 30 31 32 33 34 35 36 37
-Fator                : 39 40 41 42
+Exp                  : 10 14 15 23 28 29 30 31 32 33 34 35 36
+Fator                : 38 39 40 41
 Frase                : 17
-Funcao               : 3 18
+Funcao               : 3
 Funcoes              : 1 3
-IFor                 : 20
-Inst                 : 12 20
-Instrucoes           : 2 5
-Insts                : 11 12 20 21 22 22
-Logica               : 20 21 22 25 26 43
+IFor                 : 19
+Inst                 : 12 19
+Instrucoes           : 2
+Insts                : 5 11 12 19 20 21 21
+Logica               : 19 20 21 24 25 42
 Main                 : 1
 Programa             : 0
-Termo                : 36 37 38 39 40 41
+Termo                : 35 36 37 38 39 40
 
 Parsing method: LALR
 
@@ -136,7 +133,7 @@ state 2
     (1) Programa -> Main . Funcoes
     (3) Funcoes -> . Funcao Funcoes
     (4) Funcoes -> .
-    (5) Funcao -> . FUNCAO NOME CA Declaracoes Instrucoes RETURN Exp PV CF
+    (5) Funcao -> . FUNCAO ID CA Insts CF
 
     $end            reduce using rule 4 (Funcoes -> .)
     FUNCAO          shift and go to state 6
@@ -163,7 +160,7 @@ state 5
     (3) Funcoes -> Funcao . Funcoes
     (3) Funcoes -> . Funcao Funcoes
     (4) Funcoes -> .
-    (5) Funcao -> . FUNCAO NOME CA Declaracoes Instrucoes RETURN Exp PV CF
+    (5) Funcao -> . FUNCAO ID CA Insts CF
 
     $end            reduce using rule 4 (Funcoes -> .)
     FUNCAO          shift and go to state 6
@@ -173,9 +170,9 @@ state 5
 
 state 6
 
-    (5) Funcao -> FUNCAO . NOME CA Declaracoes Instrucoes RETURN Exp PV CF
+    (5) Funcao -> FUNCAO . ID CA Insts CF
 
-    NOME            shift and go to state 9
+    ID              shift and go to state 9
 
 
 state 7
@@ -196,7 +193,7 @@ state 8
 
 state 9
 
-    (5) Funcao -> FUNCAO NOME . CA Declaracoes Instrucoes RETURN Exp PV CF
+    (5) Funcao -> FUNCAO ID . CA Insts CF
 
     CA              shift and go to state 12
 
@@ -219,25 +216,40 @@ state 11
 
 state 12
 
-    (5) Funcao -> FUNCAO NOME CA . Declaracoes Instrucoes RETURN Exp PV CF
-    (6) Declaracoes -> . DECLARACOES CA Decls CF
+    (5) Funcao -> FUNCAO ID CA . Insts CF
+    (12) Insts -> . Inst Insts
+    (13) Insts -> .
+    (14) Inst -> . ID IGUAL Exp PV
+    (16) Inst -> . LER ID PV
+    (17) Inst -> . ESCREVER Frase PV
+    (18) Inst -> . CALL ID PV
+    (19) Inst -> . FOR PA Inst Logica PV IFor PF DO CA Insts CF
+    (20) Inst -> . IF PA Logica PF CA Insts CF
+    (21) Inst -> . IF PA Logica PF CA Insts CF ELSE CA Insts CF
 
-    DECLARACOES     shift and go to state 11
+    CF              reduce using rule 13 (Insts -> .)
+    ID              shift and go to state 16
+    LER             shift and go to state 19
+    ESCREVER        shift and go to state 20
+    CALL            shift and go to state 21
+    FOR             shift and go to state 22
+    IF              shift and go to state 23
 
-    Declaracoes                    shift and go to state 16
+    Insts                          shift and go to state 17
+    Inst                           shift and go to state 18
 
 state 13
 
     (2) Main -> MAIN CA Declaracoes Instrucoes . CF
 
-    CF              shift and go to state 17
+    CF              shift and go to state 24
 
 
 state 14
 
     (11) Instrucoes -> INSTRUCOES . CA Insts CF
 
-    CA              shift and go to state 18
+    CA              shift and go to state 25
 
 
 state 15
@@ -249,21 +261,105 @@ state 15
     (10) Decl -> . VAR ID IGUAL Exp PV
 
     CF              reduce using rule 8 (Decls -> .)
-    VAR             shift and go to state 21
+    VAR             shift and go to state 28
 
-    Decls                          shift and go to state 19
-    Decl                           shift and go to state 20
+    Decls                          shift and go to state 26
+    Decl                           shift and go to state 27
 
 state 16
 
-    (5) Funcao -> FUNCAO NOME CA Declaracoes . Instrucoes RETURN Exp PV CF
-    (11) Instrucoes -> . INSTRUCOES CA Insts CF
+    (14) Inst -> ID . IGUAL Exp PV
 
-    INSTRUCOES      shift and go to state 14
+    IGUAL           shift and go to state 29
 
-    Instrucoes                     shift and go to state 22
 
 state 17
+
+    (5) Funcao -> FUNCAO ID CA Insts . CF
+
+    CF              shift and go to state 30
+
+
+state 18
+
+    (12) Insts -> Inst . Insts
+    (12) Insts -> . Inst Insts
+    (13) Insts -> .
+    (14) Inst -> . ID IGUAL Exp PV
+    (16) Inst -> . LER ID PV
+    (17) Inst -> . ESCREVER Frase PV
+    (18) Inst -> . CALL ID PV
+    (19) Inst -> . FOR PA Inst Logica PV IFor PF DO CA Insts CF
+    (20) Inst -> . IF PA Logica PF CA Insts CF
+    (21) Inst -> . IF PA Logica PF CA Insts CF ELSE CA Insts CF
+
+    CF              reduce using rule 13 (Insts -> .)
+    ID              shift and go to state 16
+    LER             shift and go to state 19
+    ESCREVER        shift and go to state 20
+    CALL            shift and go to state 21
+    FOR             shift and go to state 22
+    IF              shift and go to state 23
+
+    Inst                           shift and go to state 18
+    Insts                          shift and go to state 31
+
+state 19
+
+    (16) Inst -> LER . ID PV
+
+    ID              shift and go to state 32
+
+
+state 20
+
+    (17) Inst -> ESCREVER . Frase PV
+    (22) Frase -> . STRING
+    (23) Frase -> . Exp
+    (35) Exp -> . Exp SOMA Termo
+    (36) Exp -> . Exp SUB Termo
+    (37) Exp -> . Termo
+    (38) Termo -> . Termo MUL Fator
+    (39) Termo -> . Termo DIV Fator
+    (40) Termo -> . Termo MOD Fator
+    (41) Termo -> . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
+
+    STRING          shift and go to state 34
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
+
+    Frase                          shift and go to state 33
+    Exp                            shift and go to state 35
+    Termo                          shift and go to state 36
+    Fator                          shift and go to state 37
+
+state 21
+
+    (18) Inst -> CALL . ID PV
+
+    ID              shift and go to state 41
+
+
+state 22
+
+    (19) Inst -> FOR . PA Inst Logica PV IFor PF DO CA Insts CF
+
+    PA              shift and go to state 42
+
+
+state 23
+
+    (20) Inst -> IF . PA Logica PF CA Insts CF
+    (21) Inst -> IF . PA Logica PF CA Insts CF ELSE CA Insts CF
+
+    PA              shift and go to state 43
+
+
+state 24
 
     (2) Main -> MAIN CA Declaracoes Instrucoes CF .
 
@@ -271,7 +367,7 @@ state 17
     $end            reduce using rule 2 (Main -> MAIN CA Declaracoes Instrucoes CF .)
 
 
-state 18
+state 25
 
     (11) Instrucoes -> INSTRUCOES CA . Insts CF
     (12) Insts -> . Inst Insts
@@ -279,32 +375,30 @@ state 18
     (14) Inst -> . ID IGUAL Exp PV
     (16) Inst -> . LER ID PV
     (17) Inst -> . ESCREVER Frase PV
-    (18) Inst -> . CALL Funcao PV
-    (19) Inst -> . RETURN Exp PV
-    (20) Inst -> . FOR PA Inst Logica PV IFor PF DO CA Insts CF
-    (21) Inst -> . IF PA Logica PF CA Insts CF
-    (22) Inst -> . IF PA Logica PF CA Insts CF ELSE CA Insts CF
+    (18) Inst -> . CALL ID PV
+    (19) Inst -> . FOR PA Inst Logica PV IFor PF DO CA Insts CF
+    (20) Inst -> . IF PA Logica PF CA Insts CF
+    (21) Inst -> . IF PA Logica PF CA Insts CF ELSE CA Insts CF
 
     CF              reduce using rule 13 (Insts -> .)
-    ID              shift and go to state 25
-    LER             shift and go to state 26
-    ESCREVER        shift and go to state 27
-    CALL            shift and go to state 28
-    RETURN          shift and go to state 29
-    FOR             shift and go to state 30
-    IF              shift and go to state 31
+    ID              shift and go to state 16
+    LER             shift and go to state 19
+    ESCREVER        shift and go to state 20
+    CALL            shift and go to state 21
+    FOR             shift and go to state 22
+    IF              shift and go to state 23
 
-    Insts                          shift and go to state 23
-    Inst                           shift and go to state 24
+    Insts                          shift and go to state 44
+    Inst                           shift and go to state 18
 
-state 19
+state 26
 
     (6) Declaracoes -> DECLARACOES CA Decls . CF
 
-    CF              shift and go to state 32
+    CF              shift and go to state 45
 
 
-state 20
+state 27
 
     (7) Decls -> Decl . Decls
     (7) Decls -> . Decl Decls
@@ -313,516 +407,321 @@ state 20
     (10) Decl -> . VAR ID IGUAL Exp PV
 
     CF              reduce using rule 8 (Decls -> .)
-    VAR             shift and go to state 21
+    VAR             shift and go to state 28
 
-    Decl                           shift and go to state 20
-    Decls                          shift and go to state 33
+    Decl                           shift and go to state 27
+    Decls                          shift and go to state 46
 
-state 21
+state 28
 
     (9) Decl -> VAR . ID PV
     (10) Decl -> VAR . ID IGUAL Exp PV
 
-    ID              shift and go to state 34
-
-
-state 22
-
-    (5) Funcao -> FUNCAO NOME CA Declaracoes Instrucoes . RETURN Exp PV CF
-
-    RETURN          shift and go to state 35
-
-
-state 23
-
-    (11) Instrucoes -> INSTRUCOES CA Insts . CF
-
-    CF              shift and go to state 36
-
-
-state 24
-
-    (12) Insts -> Inst . Insts
-    (12) Insts -> . Inst Insts
-    (13) Insts -> .
-    (14) Inst -> . ID IGUAL Exp PV
-    (16) Inst -> . LER ID PV
-    (17) Inst -> . ESCREVER Frase PV
-    (18) Inst -> . CALL Funcao PV
-    (19) Inst -> . RETURN Exp PV
-    (20) Inst -> . FOR PA Inst Logica PV IFor PF DO CA Insts CF
-    (21) Inst -> . IF PA Logica PF CA Insts CF
-    (22) Inst -> . IF PA Logica PF CA Insts CF ELSE CA Insts CF
-
-    CF              reduce using rule 13 (Insts -> .)
-    ID              shift and go to state 25
-    LER             shift and go to state 26
-    ESCREVER        shift and go to state 27
-    CALL            shift and go to state 28
-    RETURN          shift and go to state 29
-    FOR             shift and go to state 30
-    IF              shift and go to state 31
-
-    Inst                           shift and go to state 24
-    Insts                          shift and go to state 37
-
-state 25
-
-    (14) Inst -> ID . IGUAL Exp PV
-
-    IGUAL           shift and go to state 38
-
-
-state 26
-
-    (16) Inst -> LER . ID PV
-
-    ID              shift and go to state 39
-
-
-state 27
-
-    (17) Inst -> ESCREVER . Frase PV
-    (23) Frase -> . STRING
-    (24) Frase -> . Exp
-    (36) Exp -> . Exp SOMA Termo
-    (37) Exp -> . Exp SUB Termo
-    (38) Exp -> . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
-
-    STRING          shift and go to state 41
-    (               shift and go to state 45
-    NUM             shift and go to state 46
     ID              shift and go to state 47
 
-    Frase                          shift and go to state 40
-    Exp                            shift and go to state 42
-    Termo                          shift and go to state 43
-    Fator                          shift and go to state 44
-
-state 28
-
-    (18) Inst -> CALL . Funcao PV
-    (5) Funcao -> . FUNCAO NOME CA Declaracoes Instrucoes RETURN Exp PV CF
-
-    FUNCAO          shift and go to state 6
-
-    Funcao                         shift and go to state 48
 
 state 29
 
-    (19) Inst -> RETURN . Exp PV
-    (36) Exp -> . Exp SOMA Termo
-    (37) Exp -> . Exp SUB Termo
-    (38) Exp -> . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
+    (14) Inst -> ID IGUAL . Exp PV
+    (35) Exp -> . Exp SOMA Termo
+    (36) Exp -> . Exp SUB Termo
+    (37) Exp -> . Termo
+    (38) Termo -> . Termo MUL Fator
+    (39) Termo -> . Termo DIV Fator
+    (40) Termo -> . Termo MOD Fator
+    (41) Termo -> . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
 
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
 
-    Exp                            shift and go to state 49
-    Termo                          shift and go to state 43
-    Fator                          shift and go to state 44
+    Exp                            shift and go to state 48
+    Termo                          shift and go to state 36
+    Fator                          shift and go to state 37
 
 state 30
 
-    (20) Inst -> FOR . PA Inst Logica PV IFor PF DO CA Insts CF
+    (5) Funcao -> FUNCAO ID CA Insts CF .
 
-    PA              shift and go to state 50
+    FUNCAO          reduce using rule 5 (Funcao -> FUNCAO ID CA Insts CF .)
+    $end            reduce using rule 5 (Funcao -> FUNCAO ID CA Insts CF .)
 
 
 state 31
-
-    (21) Inst -> IF . PA Logica PF CA Insts CF
-    (22) Inst -> IF . PA Logica PF CA Insts CF ELSE CA Insts CF
-
-    PA              shift and go to state 51
-
-
-state 32
-
-    (6) Declaracoes -> DECLARACOES CA Decls CF .
-
-    INSTRUCOES      reduce using rule 6 (Declaracoes -> DECLARACOES CA Decls CF .)
-
-
-state 33
-
-    (7) Decls -> Decl Decls .
-
-    CF              reduce using rule 7 (Decls -> Decl Decls .)
-
-
-state 34
-
-    (9) Decl -> VAR ID . PV
-    (10) Decl -> VAR ID . IGUAL Exp PV
-
-    PV              shift and go to state 52
-    IGUAL           shift and go to state 53
-
-
-state 35
-
-    (5) Funcao -> FUNCAO NOME CA Declaracoes Instrucoes RETURN . Exp PV CF
-    (36) Exp -> . Exp SOMA Termo
-    (37) Exp -> . Exp SUB Termo
-    (38) Exp -> . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
-
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
-
-    Exp                            shift and go to state 54
-    Termo                          shift and go to state 43
-    Fator                          shift and go to state 44
-
-state 36
-
-    (11) Instrucoes -> INSTRUCOES CA Insts CF .
-
-    CF              reduce using rule 11 (Instrucoes -> INSTRUCOES CA Insts CF .)
-    RETURN          reduce using rule 11 (Instrucoes -> INSTRUCOES CA Insts CF .)
-
-
-state 37
 
     (12) Insts -> Inst Insts .
 
     CF              reduce using rule 12 (Insts -> Inst Insts .)
 
 
-state 38
-
-    (14) Inst -> ID IGUAL . Exp PV
-    (36) Exp -> . Exp SOMA Termo
-    (37) Exp -> . Exp SUB Termo
-    (38) Exp -> . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
-
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
-
-    Exp                            shift and go to state 55
-    Termo                          shift and go to state 43
-    Fator                          shift and go to state 44
-
-state 39
+state 32
 
     (16) Inst -> LER ID . PV
 
-    PV              shift and go to state 56
+    PV              shift and go to state 49
+
+
+state 33
+
+    (17) Inst -> ESCREVER Frase . PV
+
+    PV              shift and go to state 50
+
+
+state 34
+
+    (22) Frase -> STRING .
+
+    PV              reduce using rule 22 (Frase -> STRING .)
+
+
+state 35
+
+    (23) Frase -> Exp .
+    (35) Exp -> Exp . SOMA Termo
+    (36) Exp -> Exp . SUB Termo
+
+    PV              reduce using rule 23 (Frase -> Exp .)
+    SOMA            shift and go to state 51
+    SUB             shift and go to state 52
+
+
+state 36
+
+    (37) Exp -> Termo .
+    (38) Termo -> Termo . MUL Fator
+    (39) Termo -> Termo . DIV Fator
+    (40) Termo -> Termo . MOD Fator
+
+    SOMA            reduce using rule 37 (Exp -> Termo .)
+    SUB             reduce using rule 37 (Exp -> Termo .)
+    PV              reduce using rule 37 (Exp -> Termo .)
+    MAIOR           reduce using rule 37 (Exp -> Termo .)
+    MENOR           reduce using rule 37 (Exp -> Termo .)
+    MAIORI          reduce using rule 37 (Exp -> Termo .)
+    MENORI          reduce using rule 37 (Exp -> Termo .)
+    II              reduce using rule 37 (Exp -> Termo .)
+    DIF             reduce using rule 37 (Exp -> Termo .)
+    )               reduce using rule 37 (Exp -> Termo .)
+    AND             reduce using rule 37 (Exp -> Termo .)
+    OR              reduce using rule 37 (Exp -> Termo .)
+    PF              reduce using rule 37 (Exp -> Termo .)
+    MUL             shift and go to state 53
+    DIV             shift and go to state 54
+    MOD             shift and go to state 55
+
+
+state 37
+
+    (41) Termo -> Fator .
+
+    MUL             reduce using rule 41 (Termo -> Fator .)
+    DIV             reduce using rule 41 (Termo -> Fator .)
+    MOD             reduce using rule 41 (Termo -> Fator .)
+    SOMA            reduce using rule 41 (Termo -> Fator .)
+    SUB             reduce using rule 41 (Termo -> Fator .)
+    PV              reduce using rule 41 (Termo -> Fator .)
+    MAIOR           reduce using rule 41 (Termo -> Fator .)
+    MENOR           reduce using rule 41 (Termo -> Fator .)
+    MAIORI          reduce using rule 41 (Termo -> Fator .)
+    MENORI          reduce using rule 41 (Termo -> Fator .)
+    II              reduce using rule 41 (Termo -> Fator .)
+    DIF             reduce using rule 41 (Termo -> Fator .)
+    )               reduce using rule 41 (Termo -> Fator .)
+    AND             reduce using rule 41 (Termo -> Fator .)
+    OR              reduce using rule 41 (Termo -> Fator .)
+    PF              reduce using rule 41 (Termo -> Fator .)
+
+
+state 38
+
+    (42) Fator -> ( . Logica )
+    (24) Logica -> . Logica AND Cond
+    (25) Logica -> . Logica OR Cond
+    (26) Logica -> . NOT Cond
+    (27) Logica -> . Cond
+    (28) Cond -> . Cond MAIOR Exp
+    (29) Cond -> . Cond MENOR Exp
+    (30) Cond -> . Cond MAIORI Exp
+    (31) Cond -> . Cond MENORI Exp
+    (32) Cond -> . Cond II Exp
+    (33) Cond -> . Cond DIF Exp
+    (34) Cond -> . Exp
+    (35) Exp -> . Exp SOMA Termo
+    (36) Exp -> . Exp SUB Termo
+    (37) Exp -> . Termo
+    (38) Termo -> . Termo MUL Fator
+    (39) Termo -> . Termo DIV Fator
+    (40) Termo -> . Termo MOD Fator
+    (41) Termo -> . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
+
+    NOT             shift and go to state 58
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
+
+    Logica                         shift and go to state 56
+    Cond                           shift and go to state 57
+    Exp                            shift and go to state 59
+    Termo                          shift and go to state 36
+    Fator                          shift and go to state 37
+
+state 39
+
+    (43) Fator -> NUM .
+
+    MUL             reduce using rule 43 (Fator -> NUM .)
+    DIV             reduce using rule 43 (Fator -> NUM .)
+    MOD             reduce using rule 43 (Fator -> NUM .)
+    SOMA            reduce using rule 43 (Fator -> NUM .)
+    SUB             reduce using rule 43 (Fator -> NUM .)
+    PV              reduce using rule 43 (Fator -> NUM .)
+    MAIOR           reduce using rule 43 (Fator -> NUM .)
+    MENOR           reduce using rule 43 (Fator -> NUM .)
+    MAIORI          reduce using rule 43 (Fator -> NUM .)
+    MENORI          reduce using rule 43 (Fator -> NUM .)
+    II              reduce using rule 43 (Fator -> NUM .)
+    DIF             reduce using rule 43 (Fator -> NUM .)
+    )               reduce using rule 43 (Fator -> NUM .)
+    AND             reduce using rule 43 (Fator -> NUM .)
+    OR              reduce using rule 43 (Fator -> NUM .)
+    PF              reduce using rule 43 (Fator -> NUM .)
 
 
 state 40
 
-    (17) Inst -> ESCREVER Frase . PV
+    (44) Fator -> ID .
 
-    PV              shift and go to state 57
+    MUL             reduce using rule 44 (Fator -> ID .)
+    DIV             reduce using rule 44 (Fator -> ID .)
+    MOD             reduce using rule 44 (Fator -> ID .)
+    SOMA            reduce using rule 44 (Fator -> ID .)
+    SUB             reduce using rule 44 (Fator -> ID .)
+    PV              reduce using rule 44 (Fator -> ID .)
+    MAIOR           reduce using rule 44 (Fator -> ID .)
+    MENOR           reduce using rule 44 (Fator -> ID .)
+    MAIORI          reduce using rule 44 (Fator -> ID .)
+    MENORI          reduce using rule 44 (Fator -> ID .)
+    II              reduce using rule 44 (Fator -> ID .)
+    DIF             reduce using rule 44 (Fator -> ID .)
+    )               reduce using rule 44 (Fator -> ID .)
+    AND             reduce using rule 44 (Fator -> ID .)
+    OR              reduce using rule 44 (Fator -> ID .)
+    PF              reduce using rule 44 (Fator -> ID .)
 
 
 state 41
 
-    (23) Frase -> STRING .
+    (18) Inst -> CALL ID . PV
 
-    PV              reduce using rule 23 (Frase -> STRING .)
+    PV              shift and go to state 60
 
 
 state 42
 
-    (24) Frase -> Exp .
-    (36) Exp -> Exp . SOMA Termo
-    (37) Exp -> Exp . SUB Termo
+    (19) Inst -> FOR PA . Inst Logica PV IFor PF DO CA Insts CF
+    (14) Inst -> . ID IGUAL Exp PV
+    (16) Inst -> . LER ID PV
+    (17) Inst -> . ESCREVER Frase PV
+    (18) Inst -> . CALL ID PV
+    (19) Inst -> . FOR PA Inst Logica PV IFor PF DO CA Insts CF
+    (20) Inst -> . IF PA Logica PF CA Insts CF
+    (21) Inst -> . IF PA Logica PF CA Insts CF ELSE CA Insts CF
 
-    PV              reduce using rule 24 (Frase -> Exp .)
-    SOMA            shift and go to state 58
-    SUB             shift and go to state 59
+    ID              shift and go to state 16
+    LER             shift and go to state 19
+    ESCREVER        shift and go to state 20
+    CALL            shift and go to state 21
+    FOR             shift and go to state 22
+    IF              shift and go to state 23
 
+    Inst                           shift and go to state 61
 
 state 43
 
-    (38) Exp -> Termo .
-    (39) Termo -> Termo . MUL Fator
-    (40) Termo -> Termo . DIV Fator
-    (41) Termo -> Termo . MOD Fator
+    (20) Inst -> IF PA . Logica PF CA Insts CF
+    (21) Inst -> IF PA . Logica PF CA Insts CF ELSE CA Insts CF
+    (24) Logica -> . Logica AND Cond
+    (25) Logica -> . Logica OR Cond
+    (26) Logica -> . NOT Cond
+    (27) Logica -> . Cond
+    (28) Cond -> . Cond MAIOR Exp
+    (29) Cond -> . Cond MENOR Exp
+    (30) Cond -> . Cond MAIORI Exp
+    (31) Cond -> . Cond MENORI Exp
+    (32) Cond -> . Cond II Exp
+    (33) Cond -> . Cond DIF Exp
+    (34) Cond -> . Exp
+    (35) Exp -> . Exp SOMA Termo
+    (36) Exp -> . Exp SUB Termo
+    (37) Exp -> . Termo
+    (38) Termo -> . Termo MUL Fator
+    (39) Termo -> . Termo DIV Fator
+    (40) Termo -> . Termo MOD Fator
+    (41) Termo -> . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
 
-    SOMA            reduce using rule 38 (Exp -> Termo .)
-    SUB             reduce using rule 38 (Exp -> Termo .)
-    PV              reduce using rule 38 (Exp -> Termo .)
-    MAIOR           reduce using rule 38 (Exp -> Termo .)
-    MENOR           reduce using rule 38 (Exp -> Termo .)
-    MAIORI          reduce using rule 38 (Exp -> Termo .)
-    MENORI          reduce using rule 38 (Exp -> Termo .)
-    II              reduce using rule 38 (Exp -> Termo .)
-    DIF             reduce using rule 38 (Exp -> Termo .)
-    )               reduce using rule 38 (Exp -> Termo .)
-    AND             reduce using rule 38 (Exp -> Termo .)
-    OR              reduce using rule 38 (Exp -> Termo .)
-    PF              reduce using rule 38 (Exp -> Termo .)
-    MUL             shift and go to state 60
-    DIV             shift and go to state 61
-    MOD             shift and go to state 62
+    NOT             shift and go to state 58
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
 
+    Logica                         shift and go to state 62
+    Cond                           shift and go to state 57
+    Exp                            shift and go to state 59
+    Termo                          shift and go to state 36
+    Fator                          shift and go to state 37
 
 state 44
 
-    (42) Termo -> Fator .
+    (11) Instrucoes -> INSTRUCOES CA Insts . CF
 
-    MUL             reduce using rule 42 (Termo -> Fator .)
-    DIV             reduce using rule 42 (Termo -> Fator .)
-    MOD             reduce using rule 42 (Termo -> Fator .)
-    SOMA            reduce using rule 42 (Termo -> Fator .)
-    SUB             reduce using rule 42 (Termo -> Fator .)
-    PV              reduce using rule 42 (Termo -> Fator .)
-    MAIOR           reduce using rule 42 (Termo -> Fator .)
-    MENOR           reduce using rule 42 (Termo -> Fator .)
-    MAIORI          reduce using rule 42 (Termo -> Fator .)
-    MENORI          reduce using rule 42 (Termo -> Fator .)
-    II              reduce using rule 42 (Termo -> Fator .)
-    DIF             reduce using rule 42 (Termo -> Fator .)
-    )               reduce using rule 42 (Termo -> Fator .)
-    AND             reduce using rule 42 (Termo -> Fator .)
-    OR              reduce using rule 42 (Termo -> Fator .)
-    PF              reduce using rule 42 (Termo -> Fator .)
+    CF              shift and go to state 63
 
 
 state 45
 
-    (43) Fator -> ( . Logica )
-    (25) Logica -> . Logica AND Cond
-    (26) Logica -> . Logica OR Cond
-    (27) Logica -> . NOT Cond
-    (28) Logica -> . Cond
-    (29) Cond -> . Cond MAIOR Exp
-    (30) Cond -> . Cond MENOR Exp
-    (31) Cond -> . Cond MAIORI Exp
-    (32) Cond -> . Cond MENORI Exp
-    (33) Cond -> . Cond II Exp
-    (34) Cond -> . Cond DIF Exp
-    (35) Cond -> . Exp
-    (36) Exp -> . Exp SOMA Termo
-    (37) Exp -> . Exp SUB Termo
-    (38) Exp -> . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
+    (6) Declaracoes -> DECLARACOES CA Decls CF .
 
-    NOT             shift and go to state 65
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
+    INSTRUCOES      reduce using rule 6 (Declaracoes -> DECLARACOES CA Decls CF .)
 
-    Logica                         shift and go to state 63
-    Cond                           shift and go to state 64
-    Exp                            shift and go to state 66
-    Termo                          shift and go to state 43
-    Fator                          shift and go to state 44
 
 state 46
 
-    (44) Fator -> NUM .
+    (7) Decls -> Decl Decls .
 
-    MUL             reduce using rule 44 (Fator -> NUM .)
-    DIV             reduce using rule 44 (Fator -> NUM .)
-    MOD             reduce using rule 44 (Fator -> NUM .)
-    SOMA            reduce using rule 44 (Fator -> NUM .)
-    SUB             reduce using rule 44 (Fator -> NUM .)
-    PV              reduce using rule 44 (Fator -> NUM .)
-    MAIOR           reduce using rule 44 (Fator -> NUM .)
-    MENOR           reduce using rule 44 (Fator -> NUM .)
-    MAIORI          reduce using rule 44 (Fator -> NUM .)
-    MENORI          reduce using rule 44 (Fator -> NUM .)
-    II              reduce using rule 44 (Fator -> NUM .)
-    DIF             reduce using rule 44 (Fator -> NUM .)
-    )               reduce using rule 44 (Fator -> NUM .)
-    AND             reduce using rule 44 (Fator -> NUM .)
-    OR              reduce using rule 44 (Fator -> NUM .)
-    PF              reduce using rule 44 (Fator -> NUM .)
+    CF              reduce using rule 7 (Decls -> Decl Decls .)
 
 
 state 47
 
-    (45) Fator -> ID .
+    (9) Decl -> VAR ID . PV
+    (10) Decl -> VAR ID . IGUAL Exp PV
 
-    MUL             reduce using rule 45 (Fator -> ID .)
-    DIV             reduce using rule 45 (Fator -> ID .)
-    MOD             reduce using rule 45 (Fator -> ID .)
-    SOMA            reduce using rule 45 (Fator -> ID .)
-    SUB             reduce using rule 45 (Fator -> ID .)
-    PV              reduce using rule 45 (Fator -> ID .)
-    MAIOR           reduce using rule 45 (Fator -> ID .)
-    MENOR           reduce using rule 45 (Fator -> ID .)
-    MAIORI          reduce using rule 45 (Fator -> ID .)
-    MENORI          reduce using rule 45 (Fator -> ID .)
-    II              reduce using rule 45 (Fator -> ID .)
-    DIF             reduce using rule 45 (Fator -> ID .)
-    )               reduce using rule 45 (Fator -> ID .)
-    AND             reduce using rule 45 (Fator -> ID .)
-    OR              reduce using rule 45 (Fator -> ID .)
-    PF              reduce using rule 45 (Fator -> ID .)
+    PV              shift and go to state 64
+    IGUAL           shift and go to state 65
 
 
 state 48
 
-    (18) Inst -> CALL Funcao . PV
+    (14) Inst -> ID IGUAL Exp . PV
+    (35) Exp -> Exp . SOMA Termo
+    (36) Exp -> Exp . SUB Termo
 
-    PV              shift and go to state 67
+    PV              shift and go to state 66
+    SOMA            shift and go to state 51
+    SUB             shift and go to state 52
 
 
 state 49
-
-    (19) Inst -> RETURN Exp . PV
-    (36) Exp -> Exp . SOMA Termo
-    (37) Exp -> Exp . SUB Termo
-
-    PV              shift and go to state 68
-    SOMA            shift and go to state 58
-    SUB             shift and go to state 59
-
-
-state 50
-
-    (20) Inst -> FOR PA . Inst Logica PV IFor PF DO CA Insts CF
-    (14) Inst -> . ID IGUAL Exp PV
-    (16) Inst -> . LER ID PV
-    (17) Inst -> . ESCREVER Frase PV
-    (18) Inst -> . CALL Funcao PV
-    (19) Inst -> . RETURN Exp PV
-    (20) Inst -> . FOR PA Inst Logica PV IFor PF DO CA Insts CF
-    (21) Inst -> . IF PA Logica PF CA Insts CF
-    (22) Inst -> . IF PA Logica PF CA Insts CF ELSE CA Insts CF
-
-    ID              shift and go to state 25
-    LER             shift and go to state 26
-    ESCREVER        shift and go to state 27
-    CALL            shift and go to state 28
-    RETURN          shift and go to state 29
-    FOR             shift and go to state 30
-    IF              shift and go to state 31
-
-    Inst                           shift and go to state 69
-
-state 51
-
-    (21) Inst -> IF PA . Logica PF CA Insts CF
-    (22) Inst -> IF PA . Logica PF CA Insts CF ELSE CA Insts CF
-    (25) Logica -> . Logica AND Cond
-    (26) Logica -> . Logica OR Cond
-    (27) Logica -> . NOT Cond
-    (28) Logica -> . Cond
-    (29) Cond -> . Cond MAIOR Exp
-    (30) Cond -> . Cond MENOR Exp
-    (31) Cond -> . Cond MAIORI Exp
-    (32) Cond -> . Cond MENORI Exp
-    (33) Cond -> . Cond II Exp
-    (34) Cond -> . Cond DIF Exp
-    (35) Cond -> . Exp
-    (36) Exp -> . Exp SOMA Termo
-    (37) Exp -> . Exp SUB Termo
-    (38) Exp -> . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
-
-    NOT             shift and go to state 65
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
-
-    Logica                         shift and go to state 70
-    Cond                           shift and go to state 64
-    Exp                            shift and go to state 66
-    Termo                          shift and go to state 43
-    Fator                          shift and go to state 44
-
-state 52
-
-    (9) Decl -> VAR ID PV .
-
-    VAR             reduce using rule 9 (Decl -> VAR ID PV .)
-    CF              reduce using rule 9 (Decl -> VAR ID PV .)
-
-
-state 53
-
-    (10) Decl -> VAR ID IGUAL . Exp PV
-    (36) Exp -> . Exp SOMA Termo
-    (37) Exp -> . Exp SUB Termo
-    (38) Exp -> . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
-
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
-
-    Exp                            shift and go to state 71
-    Termo                          shift and go to state 43
-    Fator                          shift and go to state 44
-
-state 54
-
-    (5) Funcao -> FUNCAO NOME CA Declaracoes Instrucoes RETURN Exp . PV CF
-    (36) Exp -> Exp . SOMA Termo
-    (37) Exp -> Exp . SUB Termo
-
-    PV              shift and go to state 72
-    SOMA            shift and go to state 58
-    SUB             shift and go to state 59
-
-
-state 55
-
-    (14) Inst -> ID IGUAL Exp . PV
-    (36) Exp -> Exp . SOMA Termo
-    (37) Exp -> Exp . SUB Termo
-
-    PV              shift and go to state 73
-    SOMA            shift and go to state 58
-    SUB             shift and go to state 59
-
-
-state 56
 
     (16) Inst -> LER ID PV .
 
@@ -830,7 +729,6 @@ state 56
     LER             reduce using rule 16 (Inst -> LER ID PV .)
     ESCREVER        reduce using rule 16 (Inst -> LER ID PV .)
     CALL            reduce using rule 16 (Inst -> LER ID PV .)
-    RETURN          reduce using rule 16 (Inst -> LER ID PV .)
     FOR             reduce using rule 16 (Inst -> LER ID PV .)
     IF              reduce using rule 16 (Inst -> LER ID PV .)
     CF              reduce using rule 16 (Inst -> LER ID PV .)
@@ -839,7 +737,7 @@ state 56
     NUM             reduce using rule 16 (Inst -> LER ID PV .)
 
 
-state 57
+state 50
 
     (17) Inst -> ESCREVER Frase PV .
 
@@ -847,7 +745,6 @@ state 57
     LER             reduce using rule 17 (Inst -> ESCREVER Frase PV .)
     ESCREVER        reduce using rule 17 (Inst -> ESCREVER Frase PV .)
     CALL            reduce using rule 17 (Inst -> ESCREVER Frase PV .)
-    RETURN          reduce using rule 17 (Inst -> ESCREVER Frase PV .)
     FOR             reduce using rule 17 (Inst -> ESCREVER Frase PV .)
     IF              reduce using rule 17 (Inst -> ESCREVER Frase PV .)
     CF              reduce using rule 17 (Inst -> ESCREVER Frase PV .)
@@ -856,267 +753,268 @@ state 57
     NUM             reduce using rule 17 (Inst -> ESCREVER Frase PV .)
 
 
+state 51
+
+    (35) Exp -> Exp SOMA . Termo
+    (38) Termo -> . Termo MUL Fator
+    (39) Termo -> . Termo DIV Fator
+    (40) Termo -> . Termo MOD Fator
+    (41) Termo -> . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
+
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
+
+    Termo                          shift and go to state 67
+    Fator                          shift and go to state 37
+
+state 52
+
+    (36) Exp -> Exp SUB . Termo
+    (38) Termo -> . Termo MUL Fator
+    (39) Termo -> . Termo DIV Fator
+    (40) Termo -> . Termo MOD Fator
+    (41) Termo -> . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
+
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
+
+    Termo                          shift and go to state 68
+    Fator                          shift and go to state 37
+
+state 53
+
+    (38) Termo -> Termo MUL . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
+
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
+
+    Fator                          shift and go to state 69
+
+state 54
+
+    (39) Termo -> Termo DIV . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
+
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
+
+    Fator                          shift and go to state 70
+
+state 55
+
+    (40) Termo -> Termo MOD . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
+
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
+
+    Fator                          shift and go to state 71
+
+state 56
+
+    (42) Fator -> ( Logica . )
+    (24) Logica -> Logica . AND Cond
+    (25) Logica -> Logica . OR Cond
+
+    )               shift and go to state 72
+    AND             shift and go to state 73
+    OR              shift and go to state 74
+
+
+state 57
+
+    (27) Logica -> Cond .
+    (28) Cond -> Cond . MAIOR Exp
+    (29) Cond -> Cond . MENOR Exp
+    (30) Cond -> Cond . MAIORI Exp
+    (31) Cond -> Cond . MENORI Exp
+    (32) Cond -> Cond . II Exp
+    (33) Cond -> Cond . DIF Exp
+
+    )               reduce using rule 27 (Logica -> Cond .)
+    AND             reduce using rule 27 (Logica -> Cond .)
+    OR              reduce using rule 27 (Logica -> Cond .)
+    PF              reduce using rule 27 (Logica -> Cond .)
+    PV              reduce using rule 27 (Logica -> Cond .)
+    MAIOR           shift and go to state 75
+    MENOR           shift and go to state 76
+    MAIORI          shift and go to state 77
+    MENORI          shift and go to state 78
+    II              shift and go to state 79
+    DIF             shift and go to state 80
+
+
 state 58
 
-    (36) Exp -> Exp SOMA . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
+    (26) Logica -> NOT . Cond
+    (28) Cond -> . Cond MAIOR Exp
+    (29) Cond -> . Cond MENOR Exp
+    (30) Cond -> . Cond MAIORI Exp
+    (31) Cond -> . Cond MENORI Exp
+    (32) Cond -> . Cond II Exp
+    (33) Cond -> . Cond DIF Exp
+    (34) Cond -> . Exp
+    (35) Exp -> . Exp SOMA Termo
+    (36) Exp -> . Exp SUB Termo
+    (37) Exp -> . Termo
+    (38) Termo -> . Termo MUL Fator
+    (39) Termo -> . Termo DIV Fator
+    (40) Termo -> . Termo MOD Fator
+    (41) Termo -> . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
 
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
 
-    Termo                          shift and go to state 74
-    Fator                          shift and go to state 44
+    Cond                           shift and go to state 81
+    Exp                            shift and go to state 59
+    Termo                          shift and go to state 36
+    Fator                          shift and go to state 37
 
 state 59
 
-    (37) Exp -> Exp SUB . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
+    (34) Cond -> Exp .
+    (35) Exp -> Exp . SOMA Termo
+    (36) Exp -> Exp . SUB Termo
 
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
+    MAIOR           reduce using rule 34 (Cond -> Exp .)
+    MENOR           reduce using rule 34 (Cond -> Exp .)
+    MAIORI          reduce using rule 34 (Cond -> Exp .)
+    MENORI          reduce using rule 34 (Cond -> Exp .)
+    II              reduce using rule 34 (Cond -> Exp .)
+    DIF             reduce using rule 34 (Cond -> Exp .)
+    )               reduce using rule 34 (Cond -> Exp .)
+    AND             reduce using rule 34 (Cond -> Exp .)
+    OR              reduce using rule 34 (Cond -> Exp .)
+    PF              reduce using rule 34 (Cond -> Exp .)
+    PV              reduce using rule 34 (Cond -> Exp .)
+    SOMA            shift and go to state 51
+    SUB             shift and go to state 52
 
-    Termo                          shift and go to state 75
-    Fator                          shift and go to state 44
 
 state 60
 
-    (39) Termo -> Termo MUL . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
+    (18) Inst -> CALL ID PV .
 
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
+    ID              reduce using rule 18 (Inst -> CALL ID PV .)
+    LER             reduce using rule 18 (Inst -> CALL ID PV .)
+    ESCREVER        reduce using rule 18 (Inst -> CALL ID PV .)
+    CALL            reduce using rule 18 (Inst -> CALL ID PV .)
+    FOR             reduce using rule 18 (Inst -> CALL ID PV .)
+    IF              reduce using rule 18 (Inst -> CALL ID PV .)
+    CF              reduce using rule 18 (Inst -> CALL ID PV .)
+    NOT             reduce using rule 18 (Inst -> CALL ID PV .)
+    (               reduce using rule 18 (Inst -> CALL ID PV .)
+    NUM             reduce using rule 18 (Inst -> CALL ID PV .)
 
-    Fator                          shift and go to state 76
 
 state 61
 
-    (40) Termo -> Termo DIV . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
+    (19) Inst -> FOR PA Inst . Logica PV IFor PF DO CA Insts CF
+    (24) Logica -> . Logica AND Cond
+    (25) Logica -> . Logica OR Cond
+    (26) Logica -> . NOT Cond
+    (27) Logica -> . Cond
+    (28) Cond -> . Cond MAIOR Exp
+    (29) Cond -> . Cond MENOR Exp
+    (30) Cond -> . Cond MAIORI Exp
+    (31) Cond -> . Cond MENORI Exp
+    (32) Cond -> . Cond II Exp
+    (33) Cond -> . Cond DIF Exp
+    (34) Cond -> . Exp
+    (35) Exp -> . Exp SOMA Termo
+    (36) Exp -> . Exp SUB Termo
+    (37) Exp -> . Termo
+    (38) Termo -> . Termo MUL Fator
+    (39) Termo -> . Termo DIV Fator
+    (40) Termo -> . Termo MOD Fator
+    (41) Termo -> . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
 
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
+    NOT             shift and go to state 58
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
 
-    Fator                          shift and go to state 77
+    Logica                         shift and go to state 82
+    Cond                           shift and go to state 57
+    Exp                            shift and go to state 59
+    Termo                          shift and go to state 36
+    Fator                          shift and go to state 37
 
 state 62
 
-    (41) Termo -> Termo MOD . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
+    (20) Inst -> IF PA Logica . PF CA Insts CF
+    (21) Inst -> IF PA Logica . PF CA Insts CF ELSE CA Insts CF
+    (24) Logica -> Logica . AND Cond
+    (25) Logica -> Logica . OR Cond
 
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
+    PF              shift and go to state 83
+    AND             shift and go to state 73
+    OR              shift and go to state 74
 
-    Fator                          shift and go to state 78
 
 state 63
 
-    (43) Fator -> ( Logica . )
-    (25) Logica -> Logica . AND Cond
-    (26) Logica -> Logica . OR Cond
+    (11) Instrucoes -> INSTRUCOES CA Insts CF .
 
-    )               shift and go to state 79
-    AND             shift and go to state 80
-    OR              shift and go to state 81
+    CF              reduce using rule 11 (Instrucoes -> INSTRUCOES CA Insts CF .)
 
 
 state 64
 
-    (28) Logica -> Cond .
-    (29) Cond -> Cond . MAIOR Exp
-    (30) Cond -> Cond . MENOR Exp
-    (31) Cond -> Cond . MAIORI Exp
-    (32) Cond -> Cond . MENORI Exp
-    (33) Cond -> Cond . II Exp
-    (34) Cond -> Cond . DIF Exp
+    (9) Decl -> VAR ID PV .
 
-    )               reduce using rule 28 (Logica -> Cond .)
-    AND             reduce using rule 28 (Logica -> Cond .)
-    OR              reduce using rule 28 (Logica -> Cond .)
-    PF              reduce using rule 28 (Logica -> Cond .)
-    PV              reduce using rule 28 (Logica -> Cond .)
-    MAIOR           shift and go to state 82
-    MENOR           shift and go to state 83
-    MAIORI          shift and go to state 84
-    MENORI          shift and go to state 85
-    II              shift and go to state 86
-    DIF             shift and go to state 87
+    VAR             reduce using rule 9 (Decl -> VAR ID PV .)
+    CF              reduce using rule 9 (Decl -> VAR ID PV .)
 
 
 state 65
 
-    (27) Logica -> NOT . Cond
-    (29) Cond -> . Cond MAIOR Exp
-    (30) Cond -> . Cond MENOR Exp
-    (31) Cond -> . Cond MAIORI Exp
-    (32) Cond -> . Cond MENORI Exp
-    (33) Cond -> . Cond II Exp
-    (34) Cond -> . Cond DIF Exp
-    (35) Cond -> . Exp
-    (36) Exp -> . Exp SOMA Termo
-    (37) Exp -> . Exp SUB Termo
-    (38) Exp -> . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
+    (10) Decl -> VAR ID IGUAL . Exp PV
+    (35) Exp -> . Exp SOMA Termo
+    (36) Exp -> . Exp SUB Termo
+    (37) Exp -> . Termo
+    (38) Termo -> . Termo MUL Fator
+    (39) Termo -> . Termo DIV Fator
+    (40) Termo -> . Termo MOD Fator
+    (41) Termo -> . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
 
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
 
-    Cond                           shift and go to state 88
-    Exp                            shift and go to state 66
-    Termo                          shift and go to state 43
-    Fator                          shift and go to state 44
+    Exp                            shift and go to state 84
+    Termo                          shift and go to state 36
+    Fator                          shift and go to state 37
 
 state 66
-
-    (35) Cond -> Exp .
-    (36) Exp -> Exp . SOMA Termo
-    (37) Exp -> Exp . SUB Termo
-
-    MAIOR           reduce using rule 35 (Cond -> Exp .)
-    MENOR           reduce using rule 35 (Cond -> Exp .)
-    MAIORI          reduce using rule 35 (Cond -> Exp .)
-    MENORI          reduce using rule 35 (Cond -> Exp .)
-    II              reduce using rule 35 (Cond -> Exp .)
-    DIF             reduce using rule 35 (Cond -> Exp .)
-    )               reduce using rule 35 (Cond -> Exp .)
-    AND             reduce using rule 35 (Cond -> Exp .)
-    OR              reduce using rule 35 (Cond -> Exp .)
-    PF              reduce using rule 35 (Cond -> Exp .)
-    PV              reduce using rule 35 (Cond -> Exp .)
-    SOMA            shift and go to state 58
-    SUB             shift and go to state 59
-
-
-state 67
-
-    (18) Inst -> CALL Funcao PV .
-
-    ID              reduce using rule 18 (Inst -> CALL Funcao PV .)
-    LER             reduce using rule 18 (Inst -> CALL Funcao PV .)
-    ESCREVER        reduce using rule 18 (Inst -> CALL Funcao PV .)
-    CALL            reduce using rule 18 (Inst -> CALL Funcao PV .)
-    RETURN          reduce using rule 18 (Inst -> CALL Funcao PV .)
-    FOR             reduce using rule 18 (Inst -> CALL Funcao PV .)
-    IF              reduce using rule 18 (Inst -> CALL Funcao PV .)
-    CF              reduce using rule 18 (Inst -> CALL Funcao PV .)
-    NOT             reduce using rule 18 (Inst -> CALL Funcao PV .)
-    (               reduce using rule 18 (Inst -> CALL Funcao PV .)
-    NUM             reduce using rule 18 (Inst -> CALL Funcao PV .)
-
-
-state 68
-
-    (19) Inst -> RETURN Exp PV .
-
-    ID              reduce using rule 19 (Inst -> RETURN Exp PV .)
-    LER             reduce using rule 19 (Inst -> RETURN Exp PV .)
-    ESCREVER        reduce using rule 19 (Inst -> RETURN Exp PV .)
-    CALL            reduce using rule 19 (Inst -> RETURN Exp PV .)
-    RETURN          reduce using rule 19 (Inst -> RETURN Exp PV .)
-    FOR             reduce using rule 19 (Inst -> RETURN Exp PV .)
-    IF              reduce using rule 19 (Inst -> RETURN Exp PV .)
-    CF              reduce using rule 19 (Inst -> RETURN Exp PV .)
-    NOT             reduce using rule 19 (Inst -> RETURN Exp PV .)
-    (               reduce using rule 19 (Inst -> RETURN Exp PV .)
-    NUM             reduce using rule 19 (Inst -> RETURN Exp PV .)
-
-
-state 69
-
-    (20) Inst -> FOR PA Inst . Logica PV IFor PF DO CA Insts CF
-    (25) Logica -> . Logica AND Cond
-    (26) Logica -> . Logica OR Cond
-    (27) Logica -> . NOT Cond
-    (28) Logica -> . Cond
-    (29) Cond -> . Cond MAIOR Exp
-    (30) Cond -> . Cond MENOR Exp
-    (31) Cond -> . Cond MAIORI Exp
-    (32) Cond -> . Cond MENORI Exp
-    (33) Cond -> . Cond II Exp
-    (34) Cond -> . Cond DIF Exp
-    (35) Cond -> . Exp
-    (36) Exp -> . Exp SOMA Termo
-    (37) Exp -> . Exp SUB Termo
-    (38) Exp -> . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
-
-    NOT             shift and go to state 65
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
-
-    Logica                         shift and go to state 89
-    Cond                           shift and go to state 64
-    Exp                            shift and go to state 66
-    Termo                          shift and go to state 43
-    Fator                          shift and go to state 44
-
-state 70
-
-    (21) Inst -> IF PA Logica . PF CA Insts CF
-    (22) Inst -> IF PA Logica . PF CA Insts CF ELSE CA Insts CF
-    (25) Logica -> Logica . AND Cond
-    (26) Logica -> Logica . OR Cond
-
-    PF              shift and go to state 90
-    AND             shift and go to state 80
-    OR              shift and go to state 81
-
-
-state 71
-
-    (10) Decl -> VAR ID IGUAL Exp . PV
-    (36) Exp -> Exp . SOMA Termo
-    (37) Exp -> Exp . SUB Termo
-
-    PV              shift and go to state 91
-    SOMA            shift and go to state 58
-    SUB             shift and go to state 59
-
-
-state 72
-
-    (5) Funcao -> FUNCAO NOME CA Declaracoes Instrucoes RETURN Exp PV . CF
-
-    CF              shift and go to state 92
-
-
-state 73
 
     (14) Inst -> ID IGUAL Exp PV .
 
@@ -1124,7 +1022,6 @@ state 73
     LER             reduce using rule 14 (Inst -> ID IGUAL Exp PV .)
     ESCREVER        reduce using rule 14 (Inst -> ID IGUAL Exp PV .)
     CALL            reduce using rule 14 (Inst -> ID IGUAL Exp PV .)
-    RETURN          reduce using rule 14 (Inst -> ID IGUAL Exp PV .)
     FOR             reduce using rule 14 (Inst -> ID IGUAL Exp PV .)
     IF              reduce using rule 14 (Inst -> ID IGUAL Exp PV .)
     CF              reduce using rule 14 (Inst -> ID IGUAL Exp PV .)
@@ -1133,379 +1030,596 @@ state 73
     NUM             reduce using rule 14 (Inst -> ID IGUAL Exp PV .)
 
 
+state 67
+
+    (35) Exp -> Exp SOMA Termo .
+    (38) Termo -> Termo . MUL Fator
+    (39) Termo -> Termo . DIV Fator
+    (40) Termo -> Termo . MOD Fator
+
+    SOMA            reduce using rule 35 (Exp -> Exp SOMA Termo .)
+    SUB             reduce using rule 35 (Exp -> Exp SOMA Termo .)
+    PV              reduce using rule 35 (Exp -> Exp SOMA Termo .)
+    MAIOR           reduce using rule 35 (Exp -> Exp SOMA Termo .)
+    MENOR           reduce using rule 35 (Exp -> Exp SOMA Termo .)
+    MAIORI          reduce using rule 35 (Exp -> Exp SOMA Termo .)
+    MENORI          reduce using rule 35 (Exp -> Exp SOMA Termo .)
+    II              reduce using rule 35 (Exp -> Exp SOMA Termo .)
+    DIF             reduce using rule 35 (Exp -> Exp SOMA Termo .)
+    )               reduce using rule 35 (Exp -> Exp SOMA Termo .)
+    AND             reduce using rule 35 (Exp -> Exp SOMA Termo .)
+    OR              reduce using rule 35 (Exp -> Exp SOMA Termo .)
+    PF              reduce using rule 35 (Exp -> Exp SOMA Termo .)
+    MUL             shift and go to state 53
+    DIV             shift and go to state 54
+    MOD             shift and go to state 55
+
+
+state 68
+
+    (36) Exp -> Exp SUB Termo .
+    (38) Termo -> Termo . MUL Fator
+    (39) Termo -> Termo . DIV Fator
+    (40) Termo -> Termo . MOD Fator
+
+    SOMA            reduce using rule 36 (Exp -> Exp SUB Termo .)
+    SUB             reduce using rule 36 (Exp -> Exp SUB Termo .)
+    PV              reduce using rule 36 (Exp -> Exp SUB Termo .)
+    MAIOR           reduce using rule 36 (Exp -> Exp SUB Termo .)
+    MENOR           reduce using rule 36 (Exp -> Exp SUB Termo .)
+    MAIORI          reduce using rule 36 (Exp -> Exp SUB Termo .)
+    MENORI          reduce using rule 36 (Exp -> Exp SUB Termo .)
+    II              reduce using rule 36 (Exp -> Exp SUB Termo .)
+    DIF             reduce using rule 36 (Exp -> Exp SUB Termo .)
+    )               reduce using rule 36 (Exp -> Exp SUB Termo .)
+    AND             reduce using rule 36 (Exp -> Exp SUB Termo .)
+    OR              reduce using rule 36 (Exp -> Exp SUB Termo .)
+    PF              reduce using rule 36 (Exp -> Exp SUB Termo .)
+    MUL             shift and go to state 53
+    DIV             shift and go to state 54
+    MOD             shift and go to state 55
+
+
+state 69
+
+    (38) Termo -> Termo MUL Fator .
+
+    MUL             reduce using rule 38 (Termo -> Termo MUL Fator .)
+    DIV             reduce using rule 38 (Termo -> Termo MUL Fator .)
+    MOD             reduce using rule 38 (Termo -> Termo MUL Fator .)
+    SOMA            reduce using rule 38 (Termo -> Termo MUL Fator .)
+    SUB             reduce using rule 38 (Termo -> Termo MUL Fator .)
+    PV              reduce using rule 38 (Termo -> Termo MUL Fator .)
+    MAIOR           reduce using rule 38 (Termo -> Termo MUL Fator .)
+    MENOR           reduce using rule 38 (Termo -> Termo MUL Fator .)
+    MAIORI          reduce using rule 38 (Termo -> Termo MUL Fator .)
+    MENORI          reduce using rule 38 (Termo -> Termo MUL Fator .)
+    II              reduce using rule 38 (Termo -> Termo MUL Fator .)
+    DIF             reduce using rule 38 (Termo -> Termo MUL Fator .)
+    )               reduce using rule 38 (Termo -> Termo MUL Fator .)
+    AND             reduce using rule 38 (Termo -> Termo MUL Fator .)
+    OR              reduce using rule 38 (Termo -> Termo MUL Fator .)
+    PF              reduce using rule 38 (Termo -> Termo MUL Fator .)
+
+
+state 70
+
+    (39) Termo -> Termo DIV Fator .
+
+    MUL             reduce using rule 39 (Termo -> Termo DIV Fator .)
+    DIV             reduce using rule 39 (Termo -> Termo DIV Fator .)
+    MOD             reduce using rule 39 (Termo -> Termo DIV Fator .)
+    SOMA            reduce using rule 39 (Termo -> Termo DIV Fator .)
+    SUB             reduce using rule 39 (Termo -> Termo DIV Fator .)
+    PV              reduce using rule 39 (Termo -> Termo DIV Fator .)
+    MAIOR           reduce using rule 39 (Termo -> Termo DIV Fator .)
+    MENOR           reduce using rule 39 (Termo -> Termo DIV Fator .)
+    MAIORI          reduce using rule 39 (Termo -> Termo DIV Fator .)
+    MENORI          reduce using rule 39 (Termo -> Termo DIV Fator .)
+    II              reduce using rule 39 (Termo -> Termo DIV Fator .)
+    DIF             reduce using rule 39 (Termo -> Termo DIV Fator .)
+    )               reduce using rule 39 (Termo -> Termo DIV Fator .)
+    AND             reduce using rule 39 (Termo -> Termo DIV Fator .)
+    OR              reduce using rule 39 (Termo -> Termo DIV Fator .)
+    PF              reduce using rule 39 (Termo -> Termo DIV Fator .)
+
+
+state 71
+
+    (40) Termo -> Termo MOD Fator .
+
+    MUL             reduce using rule 40 (Termo -> Termo MOD Fator .)
+    DIV             reduce using rule 40 (Termo -> Termo MOD Fator .)
+    MOD             reduce using rule 40 (Termo -> Termo MOD Fator .)
+    SOMA            reduce using rule 40 (Termo -> Termo MOD Fator .)
+    SUB             reduce using rule 40 (Termo -> Termo MOD Fator .)
+    PV              reduce using rule 40 (Termo -> Termo MOD Fator .)
+    MAIOR           reduce using rule 40 (Termo -> Termo MOD Fator .)
+    MENOR           reduce using rule 40 (Termo -> Termo MOD Fator .)
+    MAIORI          reduce using rule 40 (Termo -> Termo MOD Fator .)
+    MENORI          reduce using rule 40 (Termo -> Termo MOD Fator .)
+    II              reduce using rule 40 (Termo -> Termo MOD Fator .)
+    DIF             reduce using rule 40 (Termo -> Termo MOD Fator .)
+    )               reduce using rule 40 (Termo -> Termo MOD Fator .)
+    AND             reduce using rule 40 (Termo -> Termo MOD Fator .)
+    OR              reduce using rule 40 (Termo -> Termo MOD Fator .)
+    PF              reduce using rule 40 (Termo -> Termo MOD Fator .)
+
+
+state 72
+
+    (42) Fator -> ( Logica ) .
+
+    MUL             reduce using rule 42 (Fator -> ( Logica ) .)
+    DIV             reduce using rule 42 (Fator -> ( Logica ) .)
+    MOD             reduce using rule 42 (Fator -> ( Logica ) .)
+    SOMA            reduce using rule 42 (Fator -> ( Logica ) .)
+    SUB             reduce using rule 42 (Fator -> ( Logica ) .)
+    PV              reduce using rule 42 (Fator -> ( Logica ) .)
+    MAIOR           reduce using rule 42 (Fator -> ( Logica ) .)
+    MENOR           reduce using rule 42 (Fator -> ( Logica ) .)
+    MAIORI          reduce using rule 42 (Fator -> ( Logica ) .)
+    MENORI          reduce using rule 42 (Fator -> ( Logica ) .)
+    II              reduce using rule 42 (Fator -> ( Logica ) .)
+    DIF             reduce using rule 42 (Fator -> ( Logica ) .)
+    )               reduce using rule 42 (Fator -> ( Logica ) .)
+    AND             reduce using rule 42 (Fator -> ( Logica ) .)
+    OR              reduce using rule 42 (Fator -> ( Logica ) .)
+    PF              reduce using rule 42 (Fator -> ( Logica ) .)
+
+
+state 73
+
+    (24) Logica -> Logica AND . Cond
+    (28) Cond -> . Cond MAIOR Exp
+    (29) Cond -> . Cond MENOR Exp
+    (30) Cond -> . Cond MAIORI Exp
+    (31) Cond -> . Cond MENORI Exp
+    (32) Cond -> . Cond II Exp
+    (33) Cond -> . Cond DIF Exp
+    (34) Cond -> . Exp
+    (35) Exp -> . Exp SOMA Termo
+    (36) Exp -> . Exp SUB Termo
+    (37) Exp -> . Termo
+    (38) Termo -> . Termo MUL Fator
+    (39) Termo -> . Termo DIV Fator
+    (40) Termo -> . Termo MOD Fator
+    (41) Termo -> . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
+
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
+
+    Cond                           shift and go to state 85
+    Exp                            shift and go to state 59
+    Termo                          shift and go to state 36
+    Fator                          shift and go to state 37
+
 state 74
 
-    (36) Exp -> Exp SOMA Termo .
-    (39) Termo -> Termo . MUL Fator
-    (40) Termo -> Termo . DIV Fator
-    (41) Termo -> Termo . MOD Fator
+    (25) Logica -> Logica OR . Cond
+    (28) Cond -> . Cond MAIOR Exp
+    (29) Cond -> . Cond MENOR Exp
+    (30) Cond -> . Cond MAIORI Exp
+    (31) Cond -> . Cond MENORI Exp
+    (32) Cond -> . Cond II Exp
+    (33) Cond -> . Cond DIF Exp
+    (34) Cond -> . Exp
+    (35) Exp -> . Exp SOMA Termo
+    (36) Exp -> . Exp SUB Termo
+    (37) Exp -> . Termo
+    (38) Termo -> . Termo MUL Fator
+    (39) Termo -> . Termo DIV Fator
+    (40) Termo -> . Termo MOD Fator
+    (41) Termo -> . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
 
-    SOMA            reduce using rule 36 (Exp -> Exp SOMA Termo .)
-    SUB             reduce using rule 36 (Exp -> Exp SOMA Termo .)
-    PV              reduce using rule 36 (Exp -> Exp SOMA Termo .)
-    MAIOR           reduce using rule 36 (Exp -> Exp SOMA Termo .)
-    MENOR           reduce using rule 36 (Exp -> Exp SOMA Termo .)
-    MAIORI          reduce using rule 36 (Exp -> Exp SOMA Termo .)
-    MENORI          reduce using rule 36 (Exp -> Exp SOMA Termo .)
-    II              reduce using rule 36 (Exp -> Exp SOMA Termo .)
-    DIF             reduce using rule 36 (Exp -> Exp SOMA Termo .)
-    )               reduce using rule 36 (Exp -> Exp SOMA Termo .)
-    AND             reduce using rule 36 (Exp -> Exp SOMA Termo .)
-    OR              reduce using rule 36 (Exp -> Exp SOMA Termo .)
-    PF              reduce using rule 36 (Exp -> Exp SOMA Termo .)
-    MUL             shift and go to state 60
-    DIV             shift and go to state 61
-    MOD             shift and go to state 62
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
 
+    Cond                           shift and go to state 86
+    Exp                            shift and go to state 59
+    Termo                          shift and go to state 36
+    Fator                          shift and go to state 37
 
 state 75
 
-    (37) Exp -> Exp SUB Termo .
-    (39) Termo -> Termo . MUL Fator
-    (40) Termo -> Termo . DIV Fator
-    (41) Termo -> Termo . MOD Fator
+    (28) Cond -> Cond MAIOR . Exp
+    (35) Exp -> . Exp SOMA Termo
+    (36) Exp -> . Exp SUB Termo
+    (37) Exp -> . Termo
+    (38) Termo -> . Termo MUL Fator
+    (39) Termo -> . Termo DIV Fator
+    (40) Termo -> . Termo MOD Fator
+    (41) Termo -> . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
 
-    SOMA            reduce using rule 37 (Exp -> Exp SUB Termo .)
-    SUB             reduce using rule 37 (Exp -> Exp SUB Termo .)
-    PV              reduce using rule 37 (Exp -> Exp SUB Termo .)
-    MAIOR           reduce using rule 37 (Exp -> Exp SUB Termo .)
-    MENOR           reduce using rule 37 (Exp -> Exp SUB Termo .)
-    MAIORI          reduce using rule 37 (Exp -> Exp SUB Termo .)
-    MENORI          reduce using rule 37 (Exp -> Exp SUB Termo .)
-    II              reduce using rule 37 (Exp -> Exp SUB Termo .)
-    DIF             reduce using rule 37 (Exp -> Exp SUB Termo .)
-    )               reduce using rule 37 (Exp -> Exp SUB Termo .)
-    AND             reduce using rule 37 (Exp -> Exp SUB Termo .)
-    OR              reduce using rule 37 (Exp -> Exp SUB Termo .)
-    PF              reduce using rule 37 (Exp -> Exp SUB Termo .)
-    MUL             shift and go to state 60
-    DIV             shift and go to state 61
-    MOD             shift and go to state 62
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
 
+    Exp                            shift and go to state 87
+    Termo                          shift and go to state 36
+    Fator                          shift and go to state 37
 
 state 76
 
-    (39) Termo -> Termo MUL Fator .
+    (29) Cond -> Cond MENOR . Exp
+    (35) Exp -> . Exp SOMA Termo
+    (36) Exp -> . Exp SUB Termo
+    (37) Exp -> . Termo
+    (38) Termo -> . Termo MUL Fator
+    (39) Termo -> . Termo DIV Fator
+    (40) Termo -> . Termo MOD Fator
+    (41) Termo -> . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
 
-    MUL             reduce using rule 39 (Termo -> Termo MUL Fator .)
-    DIV             reduce using rule 39 (Termo -> Termo MUL Fator .)
-    MOD             reduce using rule 39 (Termo -> Termo MUL Fator .)
-    SOMA            reduce using rule 39 (Termo -> Termo MUL Fator .)
-    SUB             reduce using rule 39 (Termo -> Termo MUL Fator .)
-    PV              reduce using rule 39 (Termo -> Termo MUL Fator .)
-    MAIOR           reduce using rule 39 (Termo -> Termo MUL Fator .)
-    MENOR           reduce using rule 39 (Termo -> Termo MUL Fator .)
-    MAIORI          reduce using rule 39 (Termo -> Termo MUL Fator .)
-    MENORI          reduce using rule 39 (Termo -> Termo MUL Fator .)
-    II              reduce using rule 39 (Termo -> Termo MUL Fator .)
-    DIF             reduce using rule 39 (Termo -> Termo MUL Fator .)
-    )               reduce using rule 39 (Termo -> Termo MUL Fator .)
-    AND             reduce using rule 39 (Termo -> Termo MUL Fator .)
-    OR              reduce using rule 39 (Termo -> Termo MUL Fator .)
-    PF              reduce using rule 39 (Termo -> Termo MUL Fator .)
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
 
+    Exp                            shift and go to state 88
+    Termo                          shift and go to state 36
+    Fator                          shift and go to state 37
 
 state 77
 
-    (40) Termo -> Termo DIV Fator .
+    (30) Cond -> Cond MAIORI . Exp
+    (35) Exp -> . Exp SOMA Termo
+    (36) Exp -> . Exp SUB Termo
+    (37) Exp -> . Termo
+    (38) Termo -> . Termo MUL Fator
+    (39) Termo -> . Termo DIV Fator
+    (40) Termo -> . Termo MOD Fator
+    (41) Termo -> . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
 
-    MUL             reduce using rule 40 (Termo -> Termo DIV Fator .)
-    DIV             reduce using rule 40 (Termo -> Termo DIV Fator .)
-    MOD             reduce using rule 40 (Termo -> Termo DIV Fator .)
-    SOMA            reduce using rule 40 (Termo -> Termo DIV Fator .)
-    SUB             reduce using rule 40 (Termo -> Termo DIV Fator .)
-    PV              reduce using rule 40 (Termo -> Termo DIV Fator .)
-    MAIOR           reduce using rule 40 (Termo -> Termo DIV Fator .)
-    MENOR           reduce using rule 40 (Termo -> Termo DIV Fator .)
-    MAIORI          reduce using rule 40 (Termo -> Termo DIV Fator .)
-    MENORI          reduce using rule 40 (Termo -> Termo DIV Fator .)
-    II              reduce using rule 40 (Termo -> Termo DIV Fator .)
-    DIF             reduce using rule 40 (Termo -> Termo DIV Fator .)
-    )               reduce using rule 40 (Termo -> Termo DIV Fator .)
-    AND             reduce using rule 40 (Termo -> Termo DIV Fator .)
-    OR              reduce using rule 40 (Termo -> Termo DIV Fator .)
-    PF              reduce using rule 40 (Termo -> Termo DIV Fator .)
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
 
+    Exp                            shift and go to state 89
+    Termo                          shift and go to state 36
+    Fator                          shift and go to state 37
 
 state 78
 
-    (41) Termo -> Termo MOD Fator .
+    (31) Cond -> Cond MENORI . Exp
+    (35) Exp -> . Exp SOMA Termo
+    (36) Exp -> . Exp SUB Termo
+    (37) Exp -> . Termo
+    (38) Termo -> . Termo MUL Fator
+    (39) Termo -> . Termo DIV Fator
+    (40) Termo -> . Termo MOD Fator
+    (41) Termo -> . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
 
-    MUL             reduce using rule 41 (Termo -> Termo MOD Fator .)
-    DIV             reduce using rule 41 (Termo -> Termo MOD Fator .)
-    MOD             reduce using rule 41 (Termo -> Termo MOD Fator .)
-    SOMA            reduce using rule 41 (Termo -> Termo MOD Fator .)
-    SUB             reduce using rule 41 (Termo -> Termo MOD Fator .)
-    PV              reduce using rule 41 (Termo -> Termo MOD Fator .)
-    MAIOR           reduce using rule 41 (Termo -> Termo MOD Fator .)
-    MENOR           reduce using rule 41 (Termo -> Termo MOD Fator .)
-    MAIORI          reduce using rule 41 (Termo -> Termo MOD Fator .)
-    MENORI          reduce using rule 41 (Termo -> Termo MOD Fator .)
-    II              reduce using rule 41 (Termo -> Termo MOD Fator .)
-    DIF             reduce using rule 41 (Termo -> Termo MOD Fator .)
-    )               reduce using rule 41 (Termo -> Termo MOD Fator .)
-    AND             reduce using rule 41 (Termo -> Termo MOD Fator .)
-    OR              reduce using rule 41 (Termo -> Termo MOD Fator .)
-    PF              reduce using rule 41 (Termo -> Termo MOD Fator .)
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
 
+    Exp                            shift and go to state 90
+    Termo                          shift and go to state 36
+    Fator                          shift and go to state 37
 
 state 79
 
-    (43) Fator -> ( Logica ) .
+    (32) Cond -> Cond II . Exp
+    (35) Exp -> . Exp SOMA Termo
+    (36) Exp -> . Exp SUB Termo
+    (37) Exp -> . Termo
+    (38) Termo -> . Termo MUL Fator
+    (39) Termo -> . Termo DIV Fator
+    (40) Termo -> . Termo MOD Fator
+    (41) Termo -> . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
 
-    MUL             reduce using rule 43 (Fator -> ( Logica ) .)
-    DIV             reduce using rule 43 (Fator -> ( Logica ) .)
-    MOD             reduce using rule 43 (Fator -> ( Logica ) .)
-    SOMA            reduce using rule 43 (Fator -> ( Logica ) .)
-    SUB             reduce using rule 43 (Fator -> ( Logica ) .)
-    PV              reduce using rule 43 (Fator -> ( Logica ) .)
-    MAIOR           reduce using rule 43 (Fator -> ( Logica ) .)
-    MENOR           reduce using rule 43 (Fator -> ( Logica ) .)
-    MAIORI          reduce using rule 43 (Fator -> ( Logica ) .)
-    MENORI          reduce using rule 43 (Fator -> ( Logica ) .)
-    II              reduce using rule 43 (Fator -> ( Logica ) .)
-    DIF             reduce using rule 43 (Fator -> ( Logica ) .)
-    )               reduce using rule 43 (Fator -> ( Logica ) .)
-    AND             reduce using rule 43 (Fator -> ( Logica ) .)
-    OR              reduce using rule 43 (Fator -> ( Logica ) .)
-    PF              reduce using rule 43 (Fator -> ( Logica ) .)
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
 
+    Exp                            shift and go to state 91
+    Termo                          shift and go to state 36
+    Fator                          shift and go to state 37
 
 state 80
 
-    (25) Logica -> Logica AND . Cond
-    (29) Cond -> . Cond MAIOR Exp
-    (30) Cond -> . Cond MENOR Exp
-    (31) Cond -> . Cond MAIORI Exp
-    (32) Cond -> . Cond MENORI Exp
-    (33) Cond -> . Cond II Exp
-    (34) Cond -> . Cond DIF Exp
-    (35) Cond -> . Exp
-    (36) Exp -> . Exp SOMA Termo
-    (37) Exp -> . Exp SUB Termo
-    (38) Exp -> . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
+    (33) Cond -> Cond DIF . Exp
+    (35) Exp -> . Exp SOMA Termo
+    (36) Exp -> . Exp SUB Termo
+    (37) Exp -> . Termo
+    (38) Termo -> . Termo MUL Fator
+    (39) Termo -> . Termo DIV Fator
+    (40) Termo -> . Termo MOD Fator
+    (41) Termo -> . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
 
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
 
-    Cond                           shift and go to state 93
-    Exp                            shift and go to state 66
-    Termo                          shift and go to state 43
-    Fator                          shift and go to state 44
+    Exp                            shift and go to state 92
+    Termo                          shift and go to state 36
+    Fator                          shift and go to state 37
 
 state 81
 
-    (26) Logica -> Logica OR . Cond
-    (29) Cond -> . Cond MAIOR Exp
-    (30) Cond -> . Cond MENOR Exp
-    (31) Cond -> . Cond MAIORI Exp
-    (32) Cond -> . Cond MENORI Exp
-    (33) Cond -> . Cond II Exp
-    (34) Cond -> . Cond DIF Exp
-    (35) Cond -> . Exp
-    (36) Exp -> . Exp SOMA Termo
-    (37) Exp -> . Exp SUB Termo
-    (38) Exp -> . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
+    (26) Logica -> NOT Cond .
+    (28) Cond -> Cond . MAIOR Exp
+    (29) Cond -> Cond . MENOR Exp
+    (30) Cond -> Cond . MAIORI Exp
+    (31) Cond -> Cond . MENORI Exp
+    (32) Cond -> Cond . II Exp
+    (33) Cond -> Cond . DIF Exp
 
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
+    )               reduce using rule 26 (Logica -> NOT Cond .)
+    AND             reduce using rule 26 (Logica -> NOT Cond .)
+    OR              reduce using rule 26 (Logica -> NOT Cond .)
+    PF              reduce using rule 26 (Logica -> NOT Cond .)
+    PV              reduce using rule 26 (Logica -> NOT Cond .)
+    MAIOR           shift and go to state 75
+    MENOR           shift and go to state 76
+    MAIORI          shift and go to state 77
+    MENORI          shift and go to state 78
+    II              shift and go to state 79
+    DIF             shift and go to state 80
 
-    Cond                           shift and go to state 94
-    Exp                            shift and go to state 66
-    Termo                          shift and go to state 43
-    Fator                          shift and go to state 44
 
 state 82
 
-    (29) Cond -> Cond MAIOR . Exp
-    (36) Exp -> . Exp SOMA Termo
-    (37) Exp -> . Exp SUB Termo
-    (38) Exp -> . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
+    (19) Inst -> FOR PA Inst Logica . PV IFor PF DO CA Insts CF
+    (24) Logica -> Logica . AND Cond
+    (25) Logica -> Logica . OR Cond
 
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
+    PV              shift and go to state 93
+    AND             shift and go to state 73
+    OR              shift and go to state 74
 
-    Exp                            shift and go to state 95
-    Termo                          shift and go to state 43
-    Fator                          shift and go to state 44
 
 state 83
 
-    (30) Cond -> Cond MENOR . Exp
-    (36) Exp -> . Exp SOMA Termo
-    (37) Exp -> . Exp SUB Termo
-    (38) Exp -> . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
+    (20) Inst -> IF PA Logica PF . CA Insts CF
+    (21) Inst -> IF PA Logica PF . CA Insts CF ELSE CA Insts CF
 
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
+    CA              shift and go to state 94
 
-    Exp                            shift and go to state 96
-    Termo                          shift and go to state 43
-    Fator                          shift and go to state 44
 
 state 84
 
-    (31) Cond -> Cond MAIORI . Exp
-    (36) Exp -> . Exp SOMA Termo
-    (37) Exp -> . Exp SUB Termo
-    (38) Exp -> . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
+    (10) Decl -> VAR ID IGUAL Exp . PV
+    (35) Exp -> Exp . SOMA Termo
+    (36) Exp -> Exp . SUB Termo
 
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
+    PV              shift and go to state 95
+    SOMA            shift and go to state 51
+    SUB             shift and go to state 52
 
-    Exp                            shift and go to state 97
-    Termo                          shift and go to state 43
-    Fator                          shift and go to state 44
 
 state 85
 
-    (32) Cond -> Cond MENORI . Exp
-    (36) Exp -> . Exp SOMA Termo
-    (37) Exp -> . Exp SUB Termo
-    (38) Exp -> . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
+    (24) Logica -> Logica AND Cond .
+    (28) Cond -> Cond . MAIOR Exp
+    (29) Cond -> Cond . MENOR Exp
+    (30) Cond -> Cond . MAIORI Exp
+    (31) Cond -> Cond . MENORI Exp
+    (32) Cond -> Cond . II Exp
+    (33) Cond -> Cond . DIF Exp
 
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
+    )               reduce using rule 24 (Logica -> Logica AND Cond .)
+    AND             reduce using rule 24 (Logica -> Logica AND Cond .)
+    OR              reduce using rule 24 (Logica -> Logica AND Cond .)
+    PF              reduce using rule 24 (Logica -> Logica AND Cond .)
+    PV              reduce using rule 24 (Logica -> Logica AND Cond .)
+    MAIOR           shift and go to state 75
+    MENOR           shift and go to state 76
+    MAIORI          shift and go to state 77
+    MENORI          shift and go to state 78
+    II              shift and go to state 79
+    DIF             shift and go to state 80
 
-    Exp                            shift and go to state 98
-    Termo                          shift and go to state 43
-    Fator                          shift and go to state 44
 
 state 86
 
-    (33) Cond -> Cond II . Exp
-    (36) Exp -> . Exp SOMA Termo
-    (37) Exp -> . Exp SUB Termo
-    (38) Exp -> . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
+    (25) Logica -> Logica OR Cond .
+    (28) Cond -> Cond . MAIOR Exp
+    (29) Cond -> Cond . MENOR Exp
+    (30) Cond -> Cond . MAIORI Exp
+    (31) Cond -> Cond . MENORI Exp
+    (32) Cond -> Cond . II Exp
+    (33) Cond -> Cond . DIF Exp
 
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
+    )               reduce using rule 25 (Logica -> Logica OR Cond .)
+    AND             reduce using rule 25 (Logica -> Logica OR Cond .)
+    OR              reduce using rule 25 (Logica -> Logica OR Cond .)
+    PF              reduce using rule 25 (Logica -> Logica OR Cond .)
+    PV              reduce using rule 25 (Logica -> Logica OR Cond .)
+    MAIOR           shift and go to state 75
+    MENOR           shift and go to state 76
+    MAIORI          shift and go to state 77
+    MENORI          shift and go to state 78
+    II              shift and go to state 79
+    DIF             shift and go to state 80
 
-    Exp                            shift and go to state 99
-    Termo                          shift and go to state 43
-    Fator                          shift and go to state 44
 
 state 87
 
-    (34) Cond -> Cond DIF . Exp
-    (36) Exp -> . Exp SOMA Termo
-    (37) Exp -> . Exp SUB Termo
-    (38) Exp -> . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
+    (28) Cond -> Cond MAIOR Exp .
+    (35) Exp -> Exp . SOMA Termo
+    (36) Exp -> Exp . SUB Termo
 
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
+    MAIOR           reduce using rule 28 (Cond -> Cond MAIOR Exp .)
+    MENOR           reduce using rule 28 (Cond -> Cond MAIOR Exp .)
+    MAIORI          reduce using rule 28 (Cond -> Cond MAIOR Exp .)
+    MENORI          reduce using rule 28 (Cond -> Cond MAIOR Exp .)
+    II              reduce using rule 28 (Cond -> Cond MAIOR Exp .)
+    DIF             reduce using rule 28 (Cond -> Cond MAIOR Exp .)
+    )               reduce using rule 28 (Cond -> Cond MAIOR Exp .)
+    AND             reduce using rule 28 (Cond -> Cond MAIOR Exp .)
+    OR              reduce using rule 28 (Cond -> Cond MAIOR Exp .)
+    PF              reduce using rule 28 (Cond -> Cond MAIOR Exp .)
+    PV              reduce using rule 28 (Cond -> Cond MAIOR Exp .)
+    SOMA            shift and go to state 51
+    SUB             shift and go to state 52
 
-    Exp                            shift and go to state 100
-    Termo                          shift and go to state 43
-    Fator                          shift and go to state 44
 
 state 88
 
-    (27) Logica -> NOT Cond .
-    (29) Cond -> Cond . MAIOR Exp
-    (30) Cond -> Cond . MENOR Exp
-    (31) Cond -> Cond . MAIORI Exp
-    (32) Cond -> Cond . MENORI Exp
-    (33) Cond -> Cond . II Exp
-    (34) Cond -> Cond . DIF Exp
+    (29) Cond -> Cond MENOR Exp .
+    (35) Exp -> Exp . SOMA Termo
+    (36) Exp -> Exp . SUB Termo
 
-    )               reduce using rule 27 (Logica -> NOT Cond .)
-    AND             reduce using rule 27 (Logica -> NOT Cond .)
-    OR              reduce using rule 27 (Logica -> NOT Cond .)
-    PF              reduce using rule 27 (Logica -> NOT Cond .)
-    PV              reduce using rule 27 (Logica -> NOT Cond .)
-    MAIOR           shift and go to state 82
-    MENOR           shift and go to state 83
-    MAIORI          shift and go to state 84
-    MENORI          shift and go to state 85
-    II              shift and go to state 86
-    DIF             shift and go to state 87
+    MAIOR           reduce using rule 29 (Cond -> Cond MENOR Exp .)
+    MENOR           reduce using rule 29 (Cond -> Cond MENOR Exp .)
+    MAIORI          reduce using rule 29 (Cond -> Cond MENOR Exp .)
+    MENORI          reduce using rule 29 (Cond -> Cond MENOR Exp .)
+    II              reduce using rule 29 (Cond -> Cond MENOR Exp .)
+    DIF             reduce using rule 29 (Cond -> Cond MENOR Exp .)
+    )               reduce using rule 29 (Cond -> Cond MENOR Exp .)
+    AND             reduce using rule 29 (Cond -> Cond MENOR Exp .)
+    OR              reduce using rule 29 (Cond -> Cond MENOR Exp .)
+    PF              reduce using rule 29 (Cond -> Cond MENOR Exp .)
+    PV              reduce using rule 29 (Cond -> Cond MENOR Exp .)
+    SOMA            shift and go to state 51
+    SUB             shift and go to state 52
 
 
 state 89
 
-    (20) Inst -> FOR PA Inst Logica . PV IFor PF DO CA Insts CF
-    (25) Logica -> Logica . AND Cond
-    (26) Logica -> Logica . OR Cond
+    (30) Cond -> Cond MAIORI Exp .
+    (35) Exp -> Exp . SOMA Termo
+    (36) Exp -> Exp . SUB Termo
 
-    PV              shift and go to state 101
-    AND             shift and go to state 80
-    OR              shift and go to state 81
+    MAIOR           reduce using rule 30 (Cond -> Cond MAIORI Exp .)
+    MENOR           reduce using rule 30 (Cond -> Cond MAIORI Exp .)
+    MAIORI          reduce using rule 30 (Cond -> Cond MAIORI Exp .)
+    MENORI          reduce using rule 30 (Cond -> Cond MAIORI Exp .)
+    II              reduce using rule 30 (Cond -> Cond MAIORI Exp .)
+    DIF             reduce using rule 30 (Cond -> Cond MAIORI Exp .)
+    )               reduce using rule 30 (Cond -> Cond MAIORI Exp .)
+    AND             reduce using rule 30 (Cond -> Cond MAIORI Exp .)
+    OR              reduce using rule 30 (Cond -> Cond MAIORI Exp .)
+    PF              reduce using rule 30 (Cond -> Cond MAIORI Exp .)
+    PV              reduce using rule 30 (Cond -> Cond MAIORI Exp .)
+    SOMA            shift and go to state 51
+    SUB             shift and go to state 52
 
 
 state 90
 
-    (21) Inst -> IF PA Logica PF . CA Insts CF
-    (22) Inst -> IF PA Logica PF . CA Insts CF ELSE CA Insts CF
+    (31) Cond -> Cond MENORI Exp .
+    (35) Exp -> Exp . SOMA Termo
+    (36) Exp -> Exp . SUB Termo
 
-    CA              shift and go to state 102
+    MAIOR           reduce using rule 31 (Cond -> Cond MENORI Exp .)
+    MENOR           reduce using rule 31 (Cond -> Cond MENORI Exp .)
+    MAIORI          reduce using rule 31 (Cond -> Cond MENORI Exp .)
+    MENORI          reduce using rule 31 (Cond -> Cond MENORI Exp .)
+    II              reduce using rule 31 (Cond -> Cond MENORI Exp .)
+    DIF             reduce using rule 31 (Cond -> Cond MENORI Exp .)
+    )               reduce using rule 31 (Cond -> Cond MENORI Exp .)
+    AND             reduce using rule 31 (Cond -> Cond MENORI Exp .)
+    OR              reduce using rule 31 (Cond -> Cond MENORI Exp .)
+    PF              reduce using rule 31 (Cond -> Cond MENORI Exp .)
+    PV              reduce using rule 31 (Cond -> Cond MENORI Exp .)
+    SOMA            shift and go to state 51
+    SUB             shift and go to state 52
 
 
 state 91
+
+    (32) Cond -> Cond II Exp .
+    (35) Exp -> Exp . SOMA Termo
+    (36) Exp -> Exp . SUB Termo
+
+    MAIOR           reduce using rule 32 (Cond -> Cond II Exp .)
+    MENOR           reduce using rule 32 (Cond -> Cond II Exp .)
+    MAIORI          reduce using rule 32 (Cond -> Cond II Exp .)
+    MENORI          reduce using rule 32 (Cond -> Cond II Exp .)
+    II              reduce using rule 32 (Cond -> Cond II Exp .)
+    DIF             reduce using rule 32 (Cond -> Cond II Exp .)
+    )               reduce using rule 32 (Cond -> Cond II Exp .)
+    AND             reduce using rule 32 (Cond -> Cond II Exp .)
+    OR              reduce using rule 32 (Cond -> Cond II Exp .)
+    PF              reduce using rule 32 (Cond -> Cond II Exp .)
+    PV              reduce using rule 32 (Cond -> Cond II Exp .)
+    SOMA            shift and go to state 51
+    SUB             shift and go to state 52
+
+
+state 92
+
+    (33) Cond -> Cond DIF Exp .
+    (35) Exp -> Exp . SOMA Termo
+    (36) Exp -> Exp . SUB Termo
+
+    MAIOR           reduce using rule 33 (Cond -> Cond DIF Exp .)
+    MENOR           reduce using rule 33 (Cond -> Cond DIF Exp .)
+    MAIORI          reduce using rule 33 (Cond -> Cond DIF Exp .)
+    MENORI          reduce using rule 33 (Cond -> Cond DIF Exp .)
+    II              reduce using rule 33 (Cond -> Cond DIF Exp .)
+    DIF             reduce using rule 33 (Cond -> Cond DIF Exp .)
+    )               reduce using rule 33 (Cond -> Cond DIF Exp .)
+    AND             reduce using rule 33 (Cond -> Cond DIF Exp .)
+    OR              reduce using rule 33 (Cond -> Cond DIF Exp .)
+    PF              reduce using rule 33 (Cond -> Cond DIF Exp .)
+    PV              reduce using rule 33 (Cond -> Cond DIF Exp .)
+    SOMA            shift and go to state 51
+    SUB             shift and go to state 52
+
+
+state 93
+
+    (19) Inst -> FOR PA Inst Logica PV . IFor PF DO CA Insts CF
+    (15) IFor -> . ID IGUAL Exp
+
+    ID              shift and go to state 97
+
+    IFor                           shift and go to state 96
+
+state 94
+
+    (20) Inst -> IF PA Logica PF CA . Insts CF
+    (21) Inst -> IF PA Logica PF CA . Insts CF ELSE CA Insts CF
+    (12) Insts -> . Inst Insts
+    (13) Insts -> .
+    (14) Inst -> . ID IGUAL Exp PV
+    (16) Inst -> . LER ID PV
+    (17) Inst -> . ESCREVER Frase PV
+    (18) Inst -> . CALL ID PV
+    (19) Inst -> . FOR PA Inst Logica PV IFor PF DO CA Insts CF
+    (20) Inst -> . IF PA Logica PF CA Insts CF
+    (21) Inst -> . IF PA Logica PF CA Insts CF ELSE CA Insts CF
+
+    CF              reduce using rule 13 (Insts -> .)
+    ID              shift and go to state 16
+    LER             shift and go to state 19
+    ESCREVER        shift and go to state 20
+    CALL            shift and go to state 21
+    FOR             shift and go to state 22
+    IF              shift and go to state 23
+
+    Insts                          shift and go to state 98
+    Inst                           shift and go to state 18
+
+state 95
 
     (10) Decl -> VAR ID IGUAL Exp PV .
 
@@ -1513,414 +1627,190 @@ state 91
     CF              reduce using rule 10 (Decl -> VAR ID IGUAL Exp PV .)
 
 
-state 92
-
-    (5) Funcao -> FUNCAO NOME CA Declaracoes Instrucoes RETURN Exp PV CF .
-
-    FUNCAO          reduce using rule 5 (Funcao -> FUNCAO NOME CA Declaracoes Instrucoes RETURN Exp PV CF .)
-    $end            reduce using rule 5 (Funcao -> FUNCAO NOME CA Declaracoes Instrucoes RETURN Exp PV CF .)
-    PV              reduce using rule 5 (Funcao -> FUNCAO NOME CA Declaracoes Instrucoes RETURN Exp PV CF .)
-
-
-state 93
-
-    (25) Logica -> Logica AND Cond .
-    (29) Cond -> Cond . MAIOR Exp
-    (30) Cond -> Cond . MENOR Exp
-    (31) Cond -> Cond . MAIORI Exp
-    (32) Cond -> Cond . MENORI Exp
-    (33) Cond -> Cond . II Exp
-    (34) Cond -> Cond . DIF Exp
-
-    )               reduce using rule 25 (Logica -> Logica AND Cond .)
-    AND             reduce using rule 25 (Logica -> Logica AND Cond .)
-    OR              reduce using rule 25 (Logica -> Logica AND Cond .)
-    PF              reduce using rule 25 (Logica -> Logica AND Cond .)
-    PV              reduce using rule 25 (Logica -> Logica AND Cond .)
-    MAIOR           shift and go to state 82
-    MENOR           shift and go to state 83
-    MAIORI          shift and go to state 84
-    MENORI          shift and go to state 85
-    II              shift and go to state 86
-    DIF             shift and go to state 87
-
-
-state 94
-
-    (26) Logica -> Logica OR Cond .
-    (29) Cond -> Cond . MAIOR Exp
-    (30) Cond -> Cond . MENOR Exp
-    (31) Cond -> Cond . MAIORI Exp
-    (32) Cond -> Cond . MENORI Exp
-    (33) Cond -> Cond . II Exp
-    (34) Cond -> Cond . DIF Exp
-
-    )               reduce using rule 26 (Logica -> Logica OR Cond .)
-    AND             reduce using rule 26 (Logica -> Logica OR Cond .)
-    OR              reduce using rule 26 (Logica -> Logica OR Cond .)
-    PF              reduce using rule 26 (Logica -> Logica OR Cond .)
-    PV              reduce using rule 26 (Logica -> Logica OR Cond .)
-    MAIOR           shift and go to state 82
-    MENOR           shift and go to state 83
-    MAIORI          shift and go to state 84
-    MENORI          shift and go to state 85
-    II              shift and go to state 86
-    DIF             shift and go to state 87
-
-
-state 95
-
-    (29) Cond -> Cond MAIOR Exp .
-    (36) Exp -> Exp . SOMA Termo
-    (37) Exp -> Exp . SUB Termo
-
-    MAIOR           reduce using rule 29 (Cond -> Cond MAIOR Exp .)
-    MENOR           reduce using rule 29 (Cond -> Cond MAIOR Exp .)
-    MAIORI          reduce using rule 29 (Cond -> Cond MAIOR Exp .)
-    MENORI          reduce using rule 29 (Cond -> Cond MAIOR Exp .)
-    II              reduce using rule 29 (Cond -> Cond MAIOR Exp .)
-    DIF             reduce using rule 29 (Cond -> Cond MAIOR Exp .)
-    )               reduce using rule 29 (Cond -> Cond MAIOR Exp .)
-    AND             reduce using rule 29 (Cond -> Cond MAIOR Exp .)
-    OR              reduce using rule 29 (Cond -> Cond MAIOR Exp .)
-    PF              reduce using rule 29 (Cond -> Cond MAIOR Exp .)
-    PV              reduce using rule 29 (Cond -> Cond MAIOR Exp .)
-    SOMA            shift and go to state 58
-    SUB             shift and go to state 59
-
-
 state 96
 
-    (30) Cond -> Cond MENOR Exp .
-    (36) Exp -> Exp . SOMA Termo
-    (37) Exp -> Exp . SUB Termo
+    (19) Inst -> FOR PA Inst Logica PV IFor . PF DO CA Insts CF
 
-    MAIOR           reduce using rule 30 (Cond -> Cond MENOR Exp .)
-    MENOR           reduce using rule 30 (Cond -> Cond MENOR Exp .)
-    MAIORI          reduce using rule 30 (Cond -> Cond MENOR Exp .)
-    MENORI          reduce using rule 30 (Cond -> Cond MENOR Exp .)
-    II              reduce using rule 30 (Cond -> Cond MENOR Exp .)
-    DIF             reduce using rule 30 (Cond -> Cond MENOR Exp .)
-    )               reduce using rule 30 (Cond -> Cond MENOR Exp .)
-    AND             reduce using rule 30 (Cond -> Cond MENOR Exp .)
-    OR              reduce using rule 30 (Cond -> Cond MENOR Exp .)
-    PF              reduce using rule 30 (Cond -> Cond MENOR Exp .)
-    PV              reduce using rule 30 (Cond -> Cond MENOR Exp .)
-    SOMA            shift and go to state 58
-    SUB             shift and go to state 59
+    PF              shift and go to state 99
 
 
 state 97
 
-    (31) Cond -> Cond MAIORI Exp .
-    (36) Exp -> Exp . SOMA Termo
-    (37) Exp -> Exp . SUB Termo
+    (15) IFor -> ID . IGUAL Exp
 
-    MAIOR           reduce using rule 31 (Cond -> Cond MAIORI Exp .)
-    MENOR           reduce using rule 31 (Cond -> Cond MAIORI Exp .)
-    MAIORI          reduce using rule 31 (Cond -> Cond MAIORI Exp .)
-    MENORI          reduce using rule 31 (Cond -> Cond MAIORI Exp .)
-    II              reduce using rule 31 (Cond -> Cond MAIORI Exp .)
-    DIF             reduce using rule 31 (Cond -> Cond MAIORI Exp .)
-    )               reduce using rule 31 (Cond -> Cond MAIORI Exp .)
-    AND             reduce using rule 31 (Cond -> Cond MAIORI Exp .)
-    OR              reduce using rule 31 (Cond -> Cond MAIORI Exp .)
-    PF              reduce using rule 31 (Cond -> Cond MAIORI Exp .)
-    PV              reduce using rule 31 (Cond -> Cond MAIORI Exp .)
-    SOMA            shift and go to state 58
-    SUB             shift and go to state 59
+    IGUAL           shift and go to state 100
 
 
 state 98
 
-    (32) Cond -> Cond MENORI Exp .
-    (36) Exp -> Exp . SOMA Termo
-    (37) Exp -> Exp . SUB Termo
+    (20) Inst -> IF PA Logica PF CA Insts . CF
+    (21) Inst -> IF PA Logica PF CA Insts . CF ELSE CA Insts CF
 
-    MAIOR           reduce using rule 32 (Cond -> Cond MENORI Exp .)
-    MENOR           reduce using rule 32 (Cond -> Cond MENORI Exp .)
-    MAIORI          reduce using rule 32 (Cond -> Cond MENORI Exp .)
-    MENORI          reduce using rule 32 (Cond -> Cond MENORI Exp .)
-    II              reduce using rule 32 (Cond -> Cond MENORI Exp .)
-    DIF             reduce using rule 32 (Cond -> Cond MENORI Exp .)
-    )               reduce using rule 32 (Cond -> Cond MENORI Exp .)
-    AND             reduce using rule 32 (Cond -> Cond MENORI Exp .)
-    OR              reduce using rule 32 (Cond -> Cond MENORI Exp .)
-    PF              reduce using rule 32 (Cond -> Cond MENORI Exp .)
-    PV              reduce using rule 32 (Cond -> Cond MENORI Exp .)
-    SOMA            shift and go to state 58
-    SUB             shift and go to state 59
+    CF              shift and go to state 101
 
 
 state 99
 
-    (33) Cond -> Cond II Exp .
-    (36) Exp -> Exp . SOMA Termo
-    (37) Exp -> Exp . SUB Termo
+    (19) Inst -> FOR PA Inst Logica PV IFor PF . DO CA Insts CF
 
-    MAIOR           reduce using rule 33 (Cond -> Cond II Exp .)
-    MENOR           reduce using rule 33 (Cond -> Cond II Exp .)
-    MAIORI          reduce using rule 33 (Cond -> Cond II Exp .)
-    MENORI          reduce using rule 33 (Cond -> Cond II Exp .)
-    II              reduce using rule 33 (Cond -> Cond II Exp .)
-    DIF             reduce using rule 33 (Cond -> Cond II Exp .)
-    )               reduce using rule 33 (Cond -> Cond II Exp .)
-    AND             reduce using rule 33 (Cond -> Cond II Exp .)
-    OR              reduce using rule 33 (Cond -> Cond II Exp .)
-    PF              reduce using rule 33 (Cond -> Cond II Exp .)
-    PV              reduce using rule 33 (Cond -> Cond II Exp .)
-    SOMA            shift and go to state 58
-    SUB             shift and go to state 59
+    DO              shift and go to state 102
 
 
 state 100
 
-    (34) Cond -> Cond DIF Exp .
-    (36) Exp -> Exp . SOMA Termo
-    (37) Exp -> Exp . SUB Termo
+    (15) IFor -> ID IGUAL . Exp
+    (35) Exp -> . Exp SOMA Termo
+    (36) Exp -> . Exp SUB Termo
+    (37) Exp -> . Termo
+    (38) Termo -> . Termo MUL Fator
+    (39) Termo -> . Termo DIV Fator
+    (40) Termo -> . Termo MOD Fator
+    (41) Termo -> . Fator
+    (42) Fator -> . ( Logica )
+    (43) Fator -> . NUM
+    (44) Fator -> . ID
 
-    MAIOR           reduce using rule 34 (Cond -> Cond DIF Exp .)
-    MENOR           reduce using rule 34 (Cond -> Cond DIF Exp .)
-    MAIORI          reduce using rule 34 (Cond -> Cond DIF Exp .)
-    MENORI          reduce using rule 34 (Cond -> Cond DIF Exp .)
-    II              reduce using rule 34 (Cond -> Cond DIF Exp .)
-    DIF             reduce using rule 34 (Cond -> Cond DIF Exp .)
-    )               reduce using rule 34 (Cond -> Cond DIF Exp .)
-    AND             reduce using rule 34 (Cond -> Cond DIF Exp .)
-    OR              reduce using rule 34 (Cond -> Cond DIF Exp .)
-    PF              reduce using rule 34 (Cond -> Cond DIF Exp .)
-    PV              reduce using rule 34 (Cond -> Cond DIF Exp .)
-    SOMA            shift and go to state 58
-    SUB             shift and go to state 59
+    (               shift and go to state 38
+    NUM             shift and go to state 39
+    ID              shift and go to state 40
 
+    Exp                            shift and go to state 103
+    Termo                          shift and go to state 36
+    Fator                          shift and go to state 37
 
 state 101
 
-    (20) Inst -> FOR PA Inst Logica PV . IFor PF DO CA Insts CF
-    (15) IFor -> . ID IGUAL Exp
+    (20) Inst -> IF PA Logica PF CA Insts CF .
+    (21) Inst -> IF PA Logica PF CA Insts CF . ELSE CA Insts CF
 
-    ID              shift and go to state 104
+    ID              reduce using rule 20 (Inst -> IF PA Logica PF CA Insts CF .)
+    LER             reduce using rule 20 (Inst -> IF PA Logica PF CA Insts CF .)
+    ESCREVER        reduce using rule 20 (Inst -> IF PA Logica PF CA Insts CF .)
+    CALL            reduce using rule 20 (Inst -> IF PA Logica PF CA Insts CF .)
+    FOR             reduce using rule 20 (Inst -> IF PA Logica PF CA Insts CF .)
+    IF              reduce using rule 20 (Inst -> IF PA Logica PF CA Insts CF .)
+    CF              reduce using rule 20 (Inst -> IF PA Logica PF CA Insts CF .)
+    NOT             reduce using rule 20 (Inst -> IF PA Logica PF CA Insts CF .)
+    (               reduce using rule 20 (Inst -> IF PA Logica PF CA Insts CF .)
+    NUM             reduce using rule 20 (Inst -> IF PA Logica PF CA Insts CF .)
+    ELSE            shift and go to state 104
 
-    IFor                           shift and go to state 103
 
 state 102
 
-    (21) Inst -> IF PA Logica PF CA . Insts CF
-    (22) Inst -> IF PA Logica PF CA . Insts CF ELSE CA Insts CF
-    (12) Insts -> . Inst Insts
-    (13) Insts -> .
-    (14) Inst -> . ID IGUAL Exp PV
-    (16) Inst -> . LER ID PV
-    (17) Inst -> . ESCREVER Frase PV
-    (18) Inst -> . CALL Funcao PV
-    (19) Inst -> . RETURN Exp PV
-    (20) Inst -> . FOR PA Inst Logica PV IFor PF DO CA Insts CF
-    (21) Inst -> . IF PA Logica PF CA Insts CF
-    (22) Inst -> . IF PA Logica PF CA Insts CF ELSE CA Insts CF
+    (19) Inst -> FOR PA Inst Logica PV IFor PF DO . CA Insts CF
 
-    CF              reduce using rule 13 (Insts -> .)
-    ID              shift and go to state 25
-    LER             shift and go to state 26
-    ESCREVER        shift and go to state 27
-    CALL            shift and go to state 28
-    RETURN          shift and go to state 29
-    FOR             shift and go to state 30
-    IF              shift and go to state 31
+    CA              shift and go to state 105
 
-    Insts                          shift and go to state 105
-    Inst                           shift and go to state 24
 
 state 103
 
-    (20) Inst -> FOR PA Inst Logica PV IFor . PF DO CA Insts CF
+    (15) IFor -> ID IGUAL Exp .
+    (35) Exp -> Exp . SOMA Termo
+    (36) Exp -> Exp . SUB Termo
 
-    PF              shift and go to state 106
+    PF              reduce using rule 15 (IFor -> ID IGUAL Exp .)
+    SOMA            shift and go to state 51
+    SUB             shift and go to state 52
 
 
 state 104
 
-    (15) IFor -> ID . IGUAL Exp
+    (21) Inst -> IF PA Logica PF CA Insts CF ELSE . CA Insts CF
 
-    IGUAL           shift and go to state 107
+    CA              shift and go to state 106
 
 
 state 105
 
-    (21) Inst -> IF PA Logica PF CA Insts . CF
-    (22) Inst -> IF PA Logica PF CA Insts . CF ELSE CA Insts CF
+    (19) Inst -> FOR PA Inst Logica PV IFor PF DO CA . Insts CF
+    (12) Insts -> . Inst Insts
+    (13) Insts -> .
+    (14) Inst -> . ID IGUAL Exp PV
+    (16) Inst -> . LER ID PV
+    (17) Inst -> . ESCREVER Frase PV
+    (18) Inst -> . CALL ID PV
+    (19) Inst -> . FOR PA Inst Logica PV IFor PF DO CA Insts CF
+    (20) Inst -> . IF PA Logica PF CA Insts CF
+    (21) Inst -> . IF PA Logica PF CA Insts CF ELSE CA Insts CF
 
-    CF              shift and go to state 108
+    CF              reduce using rule 13 (Insts -> .)
+    ID              shift and go to state 16
+    LER             shift and go to state 19
+    ESCREVER        shift and go to state 20
+    CALL            shift and go to state 21
+    FOR             shift and go to state 22
+    IF              shift and go to state 23
 
+    Inst                           shift and go to state 18
+    Insts                          shift and go to state 107
 
 state 106
 
-    (20) Inst -> FOR PA Inst Logica PV IFor PF . DO CA Insts CF
+    (21) Inst -> IF PA Logica PF CA Insts CF ELSE CA . Insts CF
+    (12) Insts -> . Inst Insts
+    (13) Insts -> .
+    (14) Inst -> . ID IGUAL Exp PV
+    (16) Inst -> . LER ID PV
+    (17) Inst -> . ESCREVER Frase PV
+    (18) Inst -> . CALL ID PV
+    (19) Inst -> . FOR PA Inst Logica PV IFor PF DO CA Insts CF
+    (20) Inst -> . IF PA Logica PF CA Insts CF
+    (21) Inst -> . IF PA Logica PF CA Insts CF ELSE CA Insts CF
 
-    DO              shift and go to state 109
+    CF              reduce using rule 13 (Insts -> .)
+    ID              shift and go to state 16
+    LER             shift and go to state 19
+    ESCREVER        shift and go to state 20
+    CALL            shift and go to state 21
+    FOR             shift and go to state 22
+    IF              shift and go to state 23
 
+    Insts                          shift and go to state 108
+    Inst                           shift and go to state 18
 
 state 107
 
-    (15) IFor -> ID IGUAL . Exp
-    (36) Exp -> . Exp SOMA Termo
-    (37) Exp -> . Exp SUB Termo
-    (38) Exp -> . Termo
-    (39) Termo -> . Termo MUL Fator
-    (40) Termo -> . Termo DIV Fator
-    (41) Termo -> . Termo MOD Fator
-    (42) Termo -> . Fator
-    (43) Fator -> . ( Logica )
-    (44) Fator -> . NUM
-    (45) Fator -> . ID
+    (19) Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts . CF
 
-    (               shift and go to state 45
-    NUM             shift and go to state 46
-    ID              shift and go to state 47
+    CF              shift and go to state 109
 
-    Exp                            shift and go to state 110
-    Termo                          shift and go to state 43
-    Fator                          shift and go to state 44
 
 state 108
 
-    (21) Inst -> IF PA Logica PF CA Insts CF .
-    (22) Inst -> IF PA Logica PF CA Insts CF . ELSE CA Insts CF
+    (21) Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts . CF
 
-    ID              reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF .)
-    LER             reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF .)
-    ESCREVER        reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF .)
-    CALL            reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF .)
-    RETURN          reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF .)
-    FOR             reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF .)
-    IF              reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF .)
-    CF              reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF .)
-    NOT             reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF .)
-    (               reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF .)
-    NUM             reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF .)
-    ELSE            shift and go to state 111
+    CF              shift and go to state 110
 
 
 state 109
 
-    (20) Inst -> FOR PA Inst Logica PV IFor PF DO . CA Insts CF
+    (19) Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .
 
-    CA              shift and go to state 112
+    ID              reduce using rule 19 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
+    LER             reduce using rule 19 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
+    ESCREVER        reduce using rule 19 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
+    CALL            reduce using rule 19 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
+    FOR             reduce using rule 19 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
+    IF              reduce using rule 19 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
+    CF              reduce using rule 19 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
+    NOT             reduce using rule 19 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
+    (               reduce using rule 19 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
+    NUM             reduce using rule 19 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
 
 
 state 110
 
-    (15) IFor -> ID IGUAL Exp .
-    (36) Exp -> Exp . SOMA Termo
-    (37) Exp -> Exp . SUB Termo
+    (21) Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .
 
-    PF              reduce using rule 15 (IFor -> ID IGUAL Exp .)
-    SOMA            shift and go to state 58
-    SUB             shift and go to state 59
-
-
-state 111
-
-    (22) Inst -> IF PA Logica PF CA Insts CF ELSE . CA Insts CF
-
-    CA              shift and go to state 113
-
-
-state 112
-
-    (20) Inst -> FOR PA Inst Logica PV IFor PF DO CA . Insts CF
-    (12) Insts -> . Inst Insts
-    (13) Insts -> .
-    (14) Inst -> . ID IGUAL Exp PV
-    (16) Inst -> . LER ID PV
-    (17) Inst -> . ESCREVER Frase PV
-    (18) Inst -> . CALL Funcao PV
-    (19) Inst -> . RETURN Exp PV
-    (20) Inst -> . FOR PA Inst Logica PV IFor PF DO CA Insts CF
-    (21) Inst -> . IF PA Logica PF CA Insts CF
-    (22) Inst -> . IF PA Logica PF CA Insts CF ELSE CA Insts CF
-
-    CF              reduce using rule 13 (Insts -> .)
-    ID              shift and go to state 25
-    LER             shift and go to state 26
-    ESCREVER        shift and go to state 27
-    CALL            shift and go to state 28
-    RETURN          shift and go to state 29
-    FOR             shift and go to state 30
-    IF              shift and go to state 31
-
-    Inst                           shift and go to state 24
-    Insts                          shift and go to state 114
-
-state 113
-
-    (22) Inst -> IF PA Logica PF CA Insts CF ELSE CA . Insts CF
-    (12) Insts -> . Inst Insts
-    (13) Insts -> .
-    (14) Inst -> . ID IGUAL Exp PV
-    (16) Inst -> . LER ID PV
-    (17) Inst -> . ESCREVER Frase PV
-    (18) Inst -> . CALL Funcao PV
-    (19) Inst -> . RETURN Exp PV
-    (20) Inst -> . FOR PA Inst Logica PV IFor PF DO CA Insts CF
-    (21) Inst -> . IF PA Logica PF CA Insts CF
-    (22) Inst -> . IF PA Logica PF CA Insts CF ELSE CA Insts CF
-
-    CF              reduce using rule 13 (Insts -> .)
-    ID              shift and go to state 25
-    LER             shift and go to state 26
-    ESCREVER        shift and go to state 27
-    CALL            shift and go to state 28
-    RETURN          shift and go to state 29
-    FOR             shift and go to state 30
-    IF              shift and go to state 31
-
-    Insts                          shift and go to state 115
-    Inst                           shift and go to state 24
-
-state 114
-
-    (20) Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts . CF
-
-    CF              shift and go to state 116
-
-
-state 115
-
-    (22) Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts . CF
-
-    CF              shift and go to state 117
-
-
-state 116
-
-    (20) Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .
-
-    ID              reduce using rule 20 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
-    LER             reduce using rule 20 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
-    ESCREVER        reduce using rule 20 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
-    CALL            reduce using rule 20 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
-    RETURN          reduce using rule 20 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
-    FOR             reduce using rule 20 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
-    IF              reduce using rule 20 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
-    CF              reduce using rule 20 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
-    NOT             reduce using rule 20 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
-    (               reduce using rule 20 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
-    NUM             reduce using rule 20 (Inst -> FOR PA Inst Logica PV IFor PF DO CA Insts CF .)
-
-
-state 117
-
-    (22) Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .
-
-    ID              reduce using rule 22 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
-    LER             reduce using rule 22 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
-    ESCREVER        reduce using rule 22 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
-    CALL            reduce using rule 22 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
-    RETURN          reduce using rule 22 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
-    FOR             reduce using rule 22 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
-    IF              reduce using rule 22 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
-    CF              reduce using rule 22 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
-    NOT             reduce using rule 22 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
-    (               reduce using rule 22 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
-    NUM             reduce using rule 22 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
+    ID              reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
+    LER             reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
+    ESCREVER        reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
+    CALL            reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
+    FOR             reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
+    IF              reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
+    CF              reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
+    NOT             reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
+    (               reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
+    NUM             reduce using rule 21 (Inst -> IF PA Logica PF CA Insts CF ELSE CA Insts CF .)
 

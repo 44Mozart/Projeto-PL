@@ -1,6 +1,7 @@
 import ply.lex as lex
 
-reserved = {'var' : 'VAR',
+reserved = {
+    'var' : 'VAR',
     'if' : 'IF',
     'else' : 'ELSE',
     'for' : 'FOR',
@@ -10,12 +11,13 @@ reserved = {'var' : 'VAR',
     'ler' : 'LER',
     'escrever' : 'ESCREVER',
     'funcao' : 'FUNCAO',
-    'main' : 'MAIN',
+    'main' : 'MAIN', 
+    'call' : 'CALL'
 }
 
 
 tokens = ['SOMA','SUB','MUL','DIV','MOD','II','MAIOR','MENOR','MENORI','MAIORI',
-          'AND','OR','NOT','IGUAL','DIF','PV','CA','CF','PA','PF','ID','NUM','NOME','RETURN','CALL','STRING'] + list(reserved.values())
+          'AND','OR','NOT','IGUAL','DIF','PV','CA','CF','PA','PF','ID','NUM','STRING'] + list(reserved.values())
 
 def t_AND(t):
     r'&&'
@@ -122,24 +124,9 @@ def t_ID(t):
     t.type = reserved.get(t.value,'ID')
     return t
 
-def t_RETURN(t):
-    r'return'
-    t.type = reserved.get(t.value,'RETURN')
-    return t
-
-def t_CALL(t):
-    r'call'
-    t.type = reserved.get(t.value,'CALL')
-    return t
-
 def t_NUM(t):
     r'\d+'
     t.type = reserved.get(t.value,'NUM')
-    return t
-
-def t_NOME(t):
-    r'[a-zA-Z_][a-zA-Z0-9]*\(\)'
-    t.type = reserved.get(t.value,'NOME')
     return t
 
 def t_STRING(t):
